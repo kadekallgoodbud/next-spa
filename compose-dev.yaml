@@ -7,7 +7,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: web
+    container_name: next-spa
     restart: always
     volumes:
       - ./:/app
