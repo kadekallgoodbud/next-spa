@@ -5,7 +5,8 @@ FROM node:alpine
 
 # Create the directory on the node image 
 # where our Next.js app will live
-RUN mkdir -p /app
+RUN mkdir -p /app && \
+    apk add --no-cache git
 
 # Set /app as the working directory
 WORKDIR /app
