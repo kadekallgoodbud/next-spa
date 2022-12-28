@@ -1,15 +1,15 @@
 import { Button } from "@mui/material";
-import { createTheme, ThemeProvider } from "@mui/system";
+import { ThemeProvider,createTheme } from '@mui/material/styles';
 
-const styleButton = createTheme({
+export const btnHero = createTheme({
     components : {
         MuiButton : {
-            styledOverrides : {
+            styleOverrides : {
                 root : {
-                    borderColor: "blue",
+                    borderColor: "#000000",
                     borderRadius: "25px",
-                    backgroundColor: "blue",
-                    color: "#F3F3F3",
+                    backgroundColor: "#000000",
+                    color: "#000000",
                     borderWidth: 2,
                     padding: "5px 35px",
                     textTransform: "capitalize",
@@ -26,13 +26,3 @@ const styleButton = createTheme({
         }
     }
 })
-
-
-
-export function Buttons(){
-    return(
-        <>
-            <Button theme={styleButton}></Button>
-        </>
-    )
-}
