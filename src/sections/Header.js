@@ -1,6 +1,6 @@
-import ButtonToggler from '../components/toggle'
+import ButtonToggler from '../components/Toggle'
 import React, {useState} from 'react';
-import { DrawerButton, DrawerLayout } from '../components/drawer'
+import { DrawerButton, DrawerLayout } from '../components/Drawer'
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 
 export default function Header(){
