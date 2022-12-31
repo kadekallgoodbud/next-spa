@@ -1,12 +1,12 @@
 import Head from 'next/head'
 import Header from '../sections/Header'
+import ScrollTop from '../components/Scroll'
 import Hero from '../sections/Hero'
 import React, { useContext } from 'react'
 import { ThemeContext } from '../context/theme'
 
 export default function Home() {
   const [{themeName}] = useContext(ThemeContext);
-  console.log(themeName);
   return (
   <>
       <div className={`${themeName} app`} >
@@ -19,6 +19,7 @@ export default function Home() {
         </Head>
         <Header/>
         <Hero/>
+        <ScrollTop/>
       </div>
   </>
   )
