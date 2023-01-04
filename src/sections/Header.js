@@ -1,5 +1,5 @@
 import ButtonToggler from '../components/Toggle'
-import React, {useState} from 'react';
+import { useState } from 'react';
 import { DrawerButton, DrawerLayout } from '../components/Drawer'
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 
@@ -11,7 +11,7 @@ export default function Header(){
         open ? disableBodyScroll(document) : enableBodyScroll(document);
     }
     
-    return (
+    return ( 
         <header className='header'>
             <DrawerButton open={open} setOpen={setOpen} />
             <DrawerLayout open={open} setOpen={setOpen} />

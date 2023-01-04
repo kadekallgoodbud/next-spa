@@ -13,10 +13,10 @@ export default function Hero() {
     }    
     return(
         <>
-            <div className="container w-full h-[2000px] pt-36 pb-8 mx-auto">
-                <div className="m-auto text-center flex flex-col space-y-3 items-center justify-center">
-                    <Image width={140} height={140} src={imagesource} alt="Hero Image" className="border-solid border-2 border-[#1a58a4] rounded-full m-auto object-cover" />
-                    <h1 className="text-6xl text-center font-bold">Hey, I'm {HeroProps.name}</h1>
+            <div className="container w-3/5 h-[2000px] pt-36 pb-8 mx-auto">
+                <div className="m-auto text-center flex flex-col space-y-3 items-start">
+                    <Image placeholder="empty" width={120} height={120} src={imagesource} alt="Hero Image" className="border-solid border-2 border-[#1a58a4] rounded-full object-cover" />
+                    <h1 className="bg-gradient-to-r from-[color:var(--clr-gradient-text)] to-[color:var(--clr-gradient-text-secondary)] bg-clip-text text-transparent text-6xl xs:text-5xl xs:leading-tight pb-[10px] pt-[10px] font-semibold">Hey, I'm {HeroProps.name}</h1>
                     <h3 className="text-2xl font-semibold">
                         <ReactTyped
                             strings={HeroProps.occupation}
@@ -28,7 +28,7 @@ export default function Hero() {
                     </h3>
                 </div>
                 
-                <Button variant="outlined" theme={btnHero}>Button</Button>
+                
             </div>
         </>
     )
