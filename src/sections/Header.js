@@ -1,9 +1,9 @@
-import ButtonToggler from '../components/Toggle'
+import { ButtonToggler } from '../components/Toggle'
 import { useState } from 'react';
 import { DrawerButton, DrawerLayout } from '../components/Drawer'
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 
-export default function Header(){
+export const Header = () => {
     const [open, setOpen] = useState(false);
     
     //check if it's in server or browser

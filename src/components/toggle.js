@@ -15,7 +15,7 @@ const ToggleButton = styled.a`
         }
     `
 
-export default function ButtonToggler() {
+export function ButtonToggler() {
     const [{ themeName, toggleTheme }] = useContext(ThemeContext);
     const [isDarkMode,setDarkMode] = useState(false);
 

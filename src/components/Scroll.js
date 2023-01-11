@@ -1,7 +1,34 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react'
+import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward'
+import { ThemeProvider, createTheme } from '@mui/material/styles'
+import { Icon } from '@mui/material'
 
 export default function ScrollTop() {
     const [isVisible, setVisible] = useState(false)
+
+    const theme = createTheme({
+        components: {
+            MuiSvgIcon: {
+                styleOverrides: {
+                    root: {
+                        color: '#FFFFFF',
+                        borderRadius: '24px',
+                        background: 'var(--clr-border)',
+                        padding: '5px',
+                        fontSize: 40,
+                        transition: 'transform ease-in-out',
+                        transitionDuration: '350ms',
+
+                        '&:hover':{
+                            transform: 'scale(1.1)'
+                        }
+                        
+                    },
+                },
+            },
+        },
+    });
+    
 
     const scrollEffect = () => {
         window.scrollTo({
@@ -9,7 +36,7 @@ export default function ScrollTop() {
             behavior: 'smooth'
         })
     }
-
+    
     useEffect(()=> {
         const toggleVisibility = () => {
             if(window.pageYOffset > 300) {
@@ -23,10 +50,10 @@ export default function ScrollTop() {
     },[])
 
     return(
-        <div className="relative h-25 w-25 bg-black ">
+        <div className="fixed bottom-[2rem] xs:bottom-[20px] xs:right-[15px] right-[2rem]">
             {isVisible && (
-            <div onClick={scrollEffect} className=" text-white hover:text-white cursor-pointer opacity-100 hover:opacity-100"> 
-                <div className="  transition-transform duration-200 ease-in-out hover:scale-110 bg-[color:var(--clr-border)] hover:bg-[color:var(--clr-link)] py-2 px-2 border-2 hover:border-[color:var(--clr-link)] border-[color:var(--clr-border)] rounded-full fixed bottom-[32px] xs:bottom-[20px] xs:right-[14px] right-[32px] h-12 w-12"/>
+            <div onClick={scrollEffect} className="cursor-pointer opacity-100 hover:opacity-100"> 
+                <ArrowUpwardIcon theme={theme}/>
             </div>
             )}
         </div>
