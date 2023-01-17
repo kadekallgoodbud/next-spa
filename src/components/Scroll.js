@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward'
-import { ThemeProvider, createTheme } from '@mui/material/styles'
-import { Icon } from '@mui/material'
+import { createTheme } from '@mui/material/styles'
 
 export default function ScrollTop() {
     const [isVisible, setVisible] = useState(false)
