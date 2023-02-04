@@ -1,23 +1,56 @@
-import * as React from 'react';
-import { Link } from "react-scroll";
-import SwipeableDrawer from '@mui/material/SwipeableDrawer';
-import Button from '@mui/material/Button';
-import useMediaQuery from '@mui/material/useMediaQuery';
-import { Paper } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
-import CloseIcon from '@mui/icons-material/Close';
+import * as React from 'react'
+import { Link } from "react-scroll"
+import SwipeableDrawer from '@mui/material/SwipeableDrawer'
+import Button from '@mui/material/Button'
+import { ThemeContext } from '../context/theme';
+import useMediaQuery from '@mui/material/useMediaQuery'
+import MenuIcon from '@mui/icons-material/Menu'
+import CloseIcon from '@mui/icons-material/Close'
+import { CssBaseline } from '@mui/material'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
 
 
-export default function Drawer() {
-  
-  const DrawerTheme = createTheme ({
+export default function DrawerSidebar() {
+  const [{ themeName, toggleTheme }] = React.useContext(ThemeContext);
+
+  const themeColor = createTheme ({
+    pallete: {
+      mode: 'dark',
+      primary: {
+        // light: will be calculated from palette.primary.main,
+        main: '#ff4400',
+        light: '#ffffff'
+        // dark: will be calculated from palette.primary.main,
+        // contrastText: will be calculated to contrast with palette.primary.main
+      },
+      secondary: {
+        light: 'red',
+        main: 'yellow',
+        // dark: will be calculated from palette.secondary.main,
+        contrastText: '#ffcc00',
+      },
+    },
+  })
+
+  const PaperTheme = createTheme ({
     components: {
       MuiPaper: {
         styleOverrides: {
+          root: ({ theme }) => ({
+            background: "theme.pallete.primary.main",
+            width: "230px"
+          })
+        }
+      }
+    }
+  })
+
+  const DrawerTheme = createTheme ({
+    components: {
+      MuiDrawer: {
+        styleOverrides : {
           root: {
-            background: 'var(--clr-primary)',
-            width: '230px'
+            background: "var(--clr-primary)"
           }
         }
       }
@@ -95,11 +128,12 @@ export default function Drawer() {
     <div>
       {['isOpen'].map((setOpen) => (
         <React.Fragment key={setOpen}>
-          <Button onClick={DrawerToggler(setOpen, true)}>
-            <MenuIcon/>
-          </Button>
-          <ThemeProvider theme={DrawerTheme}>
+          <ThemeProvider theme={themeColor}>
+          <CssBaseline/>
             <SwipeableDrawer
+              PaperProps={{
+                sx:(theme) => ({ backgroundColor: theme.pallete.mode, width: "280px"})
+              }}
               open={state[setOpen]}
               onClose={DrawerToggler(setOpen, false)}
               onOpen={DrawerToggler(setOpen, true)}
@@ -107,6 +141,10 @@ export default function Drawer() {
               {InsideDrawer(setOpen)}
             </SwipeableDrawer>
           </ThemeProvider>
+          <Button onClick={DrawerToggler(setOpen, true)}>
+            <MenuIcon/>
+          </Button>
+
 
         </React.Fragment>
       ))}

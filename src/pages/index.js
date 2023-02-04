@@ -1,7 +1,8 @@
 import Head from 'next/head'
 import { Header } from '../sections/Header'
 import ScrollTop from '../components/Scroll'
-import Drawer from '../components/Muidrawer'
+import { ButtonToggler } from '../components/Toggle'
+import DrawerSidebar from '../components/Muidrawer'
 import Hero from '../sections/Hero'
 import React, { useContext } from 'react'
 import { ThemeContext } from '../context/theme'
@@ -18,7 +19,8 @@ export default function Home() {
           <meta name="author" content="Agus Wibawa"></meta>
           <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
         </Head>
-        <Drawer/>
+        <Header/>
+        <ButtonToggler/>
         <Hero/>
         <ScrollTop/>
       </div>

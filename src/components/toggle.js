@@ -1,19 +1,6 @@
-import styled from 'styled-components';
 import { useContext, useState } from 'react';
 import { ThemeContext } from '../context/theme';
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
-
-const ToggleButton = styled.a`
-        position: fixed;
-        top: 5%;
-        right: 2rem;
-
-        @media (max-width: 600px) {
-        position: absolute;
-        top: 4%;
-        right: 1.5rem;
-        }
-    `
 
 export function ButtonToggler() {
     const [{ themeName, toggleTheme }] = useContext(ThemeContext);
@@ -27,7 +14,9 @@ export function ButtonToggler() {
 
     return(
         <>
-            <ToggleButton>
+            <div
+            className='fixed top-[5%] right-[2rem] xs:absolute xs:top-[4%] xs:right-[1.5rem]'
+            >
                 <DarkModeSwitch 
                 style={{
                     filter: 'drop-shadow(0px 1px 4px #FFFFFF)'
@@ -39,7 +28,7 @@ export function ButtonToggler() {
                  moonColor='white'
                  sunColor='#f5c313'
                  />
-            </ToggleButton> 
+            </div> 
         </>
     )
 }
