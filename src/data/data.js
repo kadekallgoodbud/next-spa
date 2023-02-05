@@ -1,6 +1,7 @@
 export const data = {
     hero: {
-        name: "Agus Wibawa",
+        intro: " Hey, Welcome to my Site",
+        name: "I'm Agus Wibawa",
         occupation: [
            "Front-End Developer",
            "UI/UX Designer", 
@@ -18,7 +19,7 @@ export const data = {
     },
     about: {
         title: "About me",
-        desc: "Hi, I'm Agus. I'm a front-end developer and UI designer based in Bali. Interfaces are my thing, so designing and building them with new tech is my specialty. And of course I'll help you to build or maintaining your dream websites. I'm open for remote or full-time work and can easily adapt with your workflow and collaborative with team. let me know if you interested and contact me for more info :3 "
+        desc: "I am an enthusiastic front-end developer and UI designer based in beautiful Bali. My passion lies in designing and building interfaces using the latest technologies. I am confident in my ability to help bring your website vision to life, whether through building it from scratch or maintaining an existing site. I am open to both remote and full-time work opportunities and am able to easily adapt to your preferred workflow and collaborate effectively with your team. If you're interested in working with me, please don't hesitate to get in touch for more information :3"
     },
 
     education: {

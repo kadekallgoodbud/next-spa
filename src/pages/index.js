@@ -2,8 +2,8 @@ import Head from 'next/head'
 import { Header } from '../sections/Header'
 import ScrollTop from '../components/Scroll'
 import { ButtonToggler } from '../components/Toggle'
-import DrawerSidebar from '../components/Muidrawer'
 import Hero from '../sections/Hero'
+import About from '../sections/About'
 import React, { useContext } from 'react'
 import { ThemeContext } from '../context/theme'
 
@@ -22,6 +22,7 @@ export default function Home() {
         <Header/>
         <ButtonToggler/>
         <Hero/>
+        <About/>
         <ScrollTop/>
       </div>
   </>

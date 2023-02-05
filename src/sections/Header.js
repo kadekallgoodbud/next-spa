@@ -1,5 +1,5 @@
 import { ButtonToggler } from '../components/Toggle'
-import { useState } from 'react';
+import { useState } from 'react'
 import { DrawerButton, DrawerLayout } from '../components/Drawer/Drawer'
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 
