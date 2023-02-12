@@ -79,6 +79,25 @@ export const data = {
 
 };
 
+export const timelineData = [
+    { 
+        year: 2020,
+        desc: "Working as Meat Distributor Admin",  
+    },
+    {
+        year: 2021,
+        desc: "Starting Career as Website Designer",
+    },
+    {
+        year: 2022,
+        desc: "Become Junior Front End Developer",
+    },
+    {
+        year: 2023,
+        desc: "Become Front end Developer and Diving completely into ReactJS, Next.js, and Node.js API Development",
+    }
+]
+
 
 
 

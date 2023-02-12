@@ -12,12 +12,6 @@ module.exports = {
   theme: {
     extend: {
     },
-    screens: {
-        // adding xs to the rest
-      xs: {"max": "600px"},
-        // if you did not add this, you would have only "xs"
-      ...defaultTheme.screens,
-    },
   },
   plugins: [],
 }

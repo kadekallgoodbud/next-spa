@@ -8,7 +8,7 @@
     --clr-text-custom: #3a4f66; 
     --clr-border: #0652A0;
     --clr-border-card: #e5e7eb;
-    --clr-gradient: transparent;
+    --clr-gradient: linear-gradient(to right bottom, #007fff, #0059b2 120%);
     --clr-gradient-text:#0073e8;
     --clr-gradient-text-secondary: #025cb8;
 }

@@ -1,4 +1,4 @@
-import '../../styles/globals.css'
+import '../styles/globals.css'
 import { ThemeProvider } from '../context/theme'
 import { Inter } from '@next/font/google'
 
