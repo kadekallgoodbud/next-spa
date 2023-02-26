@@ -1,0 +1,55 @@
+{
+    "allProjects": 
+    [
+        {
+            "id": "1",
+            "title": "Snake Game",
+            "desc": "This is my first programming project created using C++",
+            "stack": [
+                "C++"
+            ],
+            "link": "https://github.com/wibawasuyadnya/simple-snake-game-basic-"
+        },
+        {   
+            "id": "2",
+            "title": "Covid 19 Tracking",
+            "desc": "Creating Covid 19 tracking project for boredom quarantine lockdown",
+            "stack": [
+                "Python"
+            ],
+            "link": "https://github.com/wibawasuyadnya/covid19tracking"
+        },        
+        {
+            "id": "3",
+            "title": "Meat App",
+            "desc": "Web application for food delivery With TypeScript and Angular 🍔 🍕 🍩  ",
+            "stack": [
+                "Angular",
+                "TypeScript"
+            ],
+            "link": "https://github.com/wibawasuyadnya/meat-delivery-app"
+        },        
+        {
+            "id": "4",
+            "title": "Portfolio Angular",
+            "desc": "Web App Portfolio using Angular cli version 8.3.2. and Bootstrap",
+            "stack": [
+                "Angular",
+                "Bootstrap",
+                "TypeScript"
+            ],
+            "link": "https://github.com/wibawasuyadnya/Portfolio-Angular"
+        },
+        {
+            "id": "5",
+            "title": "Noteapp",
+            "desc": "CRUD Note Webapp with Filter search and animation with Angular 15",
+            "stack": [
+                "Angular",
+                "Tailwindcss",
+                "TypeScript"
+            ],
+            "link": "https://github.com/wibawasuyadnya/noteapp"
+        }
+    ]
+}

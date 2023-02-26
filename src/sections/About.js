@@ -1,33 +1,17 @@
-import React, { useEffect, useRef, useState } from "react"
-import { data, timelineData } from "../data/data"
-import styled from 'styled-components'
-
-const defaultTheme = {
-  
-  // Breakpoints for responsive design
-  breakpoints: {
-    xs: 'screen and (max-width: 480px)',
-    sm: 'screen and (max-width: 640px)',
-    md: 'screen and (max-width: 768px)',
-    lg: 'screen and (max-width: 1024px)',
-    xl: 'screen and (max-width: 1280px)'
-  },
-}
+import React, { useEffect, useRef, useState } from "react";
+import { data, timelineData } from "../api/data";
+import styled from 'styled-components';
 
 export const CarouselContainer = styled.ul`
-  max-width: 1040px;
+  max-width: 100%;
   padding: 0;
   list-style:none;
   display: flex;
+  flex-direction: row;
+  gap: 20px;
   justify-content: space-between; 
   /* overflow-x: hidden; */
-
-  margin-left: 32px;
-  &:first-of-type{
-    margin-left: 0;
-  }
-
-  margin-bottom: 30px;
+  margin: 10px 0px;
 
   //remove scrollbar
   scrollbar-width: none;  
@@ -35,7 +19,7 @@ export const CarouselContainer = styled.ul`
      display: none;
    }
 
-  @media ${defaultTheme.breakpoints.sm} {
+  @media (max-width: 600px) {
     overflow-x: scroll;
     -webkit-overflow-scrolling: touch;
     scroll-snap-type: x mandatory;
@@ -45,20 +29,16 @@ export const CarouselContainer = styled.ul`
   }
 `
 export const CarouselMobileScrollNode = styled.li`
-  @media ${defaultTheme.breakpoints.sm} {
+  @media (max-width: 600px) {
     display: flex;
     min-width: ${({ final }) => final ? `120%;` : `min-content`}
   }
 `
 
 export const CarouselItem = styled.div`
-  max-width: 196px;
-
-  @media ${defaultTheme.breakpoints.md} {
-    max-width: 124px;
-  }
   
-  @media ${defaultTheme.breakpoints.sm} {
+
+  @media (max-width: 600px) {
     margin-left: 32px;
     min-width: 120px;
     padding: 4px;
@@ -68,7 +48,6 @@ export const CarouselItem = styled.div`
     overflow: visible;
     position: relative;
     height: fit-content;
-    
     ${(props) => props.active === props.index ? `opacity: 1` : `opacity: 0.5`}; 
   }
 `
@@ -80,26 +59,17 @@ export const CarouselItemTitle = styled.span`
     font-size: 24px;
     line-height: 32px;
     letter-spacing: 0.02em;
-    background: "red";
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-
     background: var(--clr-gradient);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 
     @media not all and (min-resolution:.001dpcm) {
         //@supports () {}
         display: inline-block;
     }
-
-    @media ${defaultTheme.breakpoints.md} {
-        margin-bottom: 4px;
-        font-size: 20px;
-        line-height: 28px;
-    }
   
-    @media ${defaultTheme.breakpoints.sm} {
+    @media (max-width: 600px) {
       font-size: 16px;
       line-height: 24px;
     }
@@ -107,13 +77,13 @@ export const CarouselItemTitle = styled.span`
 export const CarouselItemImg = styled.svg`
     margin-left: 21px;
     width: 100%;
-    fill: "red"
+    fill: var(--clr-gradient);
         
     path {
-        fill: "red"
+        fill: var(--clr-gradient);
     }
 
-    @media ${defaultTheme.breakpoints.sm} {
+    @media (max-width: 600px) {
         -webkit-mask-image: none;
         margin-left: 16px;
         overflow: visible;
@@ -123,7 +93,7 @@ export const CarouselItemImg = styled.svg`
     //@supports () {}
       width: 110px;
     
-      @media ${defaultTheme.breakpoints.sm} {
+      @media (max-width: 600px) {
           width: 32px;
       }
     }
@@ -134,14 +104,9 @@ export const CarouselItemText = styled.p`
     line-height: 22px;
     letter-spacing: 0.02em;
     padding-right: 16px;
-
-    @media ${defaultTheme.breakpoints.md} {  
-        padding-right: 32px;
-        font-size: 12px;
-        line-height: 18px;
-    }
+    color: var(--clr-body);
     
-    @media ${defaultTheme.breakpoints.sm} {  
+    @media (max-width: 600px) {  
         padding-right: 0;
         font-size: 10px;
         line-height: 16px;
@@ -152,7 +117,7 @@ export const CarouselButtons = styled.div`
     display: none;
     visibility: hidden;
 
-    @media ${defaultTheme.breakpoints.sm} {
+    @media (max-width: 600px) {
       margin-bottom: 48px;
       display: flex;
       visibility: visible;
@@ -165,7 +130,7 @@ export const CarouselButton = styled.button`
     padding: 4px;
     cursor: pointer;
     margin-right: 4px;
-    opacity: ${(props) => props.active === props.index ? `1` : `1`};
+    opacity: ${(props) => props.active === props.index ? `1` : `.33`};
     transform: ${(props) => props.active === props.index ? `scale(1.6)` : `scale(1)`};
 
     &:focus {
@@ -183,7 +148,7 @@ export const CarouselButtonDot = styled.div`
 
 
 export default function About({}) {
-    const [itemActive, setItemActive] = useState(0);
+    const [activeItem, setActiveItem] = useState(0);
     const carouselRef = useRef();
 
     const AboutProps = {
@@ -193,16 +158,16 @@ export default function About({}) {
 
     const TOTAL_ITEMS_COUNT = timelineData.length;
 
-
     const scroll = (node, left) => {
-        return node.scrollTo({ left, behavior: "smooth" });
-      };
+        return node.scrollTo({left, behavior: 'smooth'});
+    }
 
     const handleClick = (e, i) => {
         e.preventDefault();
+
         if(carouselRef.current) {
             const scrollLeft = Math.floor(
-                carouselRef.current.scrollWidth * 0.7 * (i/ timelineData.length)
+                carouselRef.current.scrollWidth * 1 * (i/ timelineData.length)
             );
 
             scroll(carouselRef.current, scrollLeft)
@@ -213,23 +178,23 @@ export default function About({}) {
         if (carouselRef.current) {
           const index = Math.round(
             (carouselRef.current.scrollLeft /
-              (carouselRef.current.scrollWidth * 0.7)) *
+              (carouselRef.current.scrollWidth * 1 )) *
               timelineData.length
           );
 
-            setItemActive(index);
+          setActiveItem(index);
         }
     };
 
     useEffect(() => {
-        const handleSize = () => {
+        const handleResize = () => {
             scroll(carouselRef.current, 0);
         };
 
-        window.addEventListener('resize' , handleSize);
+        window.addEventListener('resize' , handleResize);
 
         return () => {
-            window.removeEventListener('scroll', handleSize);
+            window.removeEventListener('resize', handleResize);
         };
     },[]);
 
@@ -237,7 +202,7 @@ export default function About({}) {
         <>
             <div className='container w-3/5 mx-auto '>
                 <div className='m-auto text-left flex flex-col space-y-3 '>
-                    <h2 className='text-4xl font-semibold text-[color:var(--clr-body)] '>{AboutProps.title}</h2>
+                    <h2 className='text-5xl font-bold bg-gradient-to-r from-[color:var(--clr-gradient-text)] to-[color:var(--clr-gradient-text-secondary)] bg-clip-text text-transparent'>{AboutProps.title}</h2>
                     <p className='text-lg font-normal text-[color:var(--clr-body)]'>{AboutProps.desc}</p>
                 </div>
                 <CarouselContainer ref={carouselRef} onScroll={handleScroll}>
@@ -245,13 +210,12 @@ export default function About({}) {
                     {timelineData.map((item, index) => (
                       <CarouselMobileScrollNode
                       key={index}
-                      index={index}
-                      final={index ? TOTAL_ITEMS_COUNT - 1 : undefined}>
+                      final={index === TOTAL_ITEMS_COUNT - 1}
+                      >
                         <CarouselItem
-                        className=" max-w-[124px] "
-                        key={index}
+                        index={index}
                         id={`carousel__item-${index}`}
-                        active={itemActive}
+                        active={activeItem}
                         onClick={(e) => handleClick(e,index)}
                         >
                           <CarouselItemTitle>
@@ -284,26 +248,25 @@ export default function About({}) {
                               </defs>
                             </CarouselItemImg>
                           </CarouselItemTitle>
-                          <CarouselItemText>{item.desc}</CarouselItemText>
+                          <CarouselItemText>{`${item.desc}`}</CarouselItemText>
                         </CarouselItem>
                       </CarouselMobileScrollNode>
                     ))}
                     </>
                 </CarouselContainer>
-                <CarouselButtons
-                >
+                <CarouselButtons>
                     {timelineData.map((item, index) => {
                       return (
                         <CarouselButton
                           key={index}
                           index={index}
-                          active={itemActive}
+                          active={activeItem}
                           onClick={(e) => handleClick(e, index)}
                           type="button"
                           name={`slide-${index}`}
                           aria-label={`slide ${index} was selected`}
                         >
-                          <CarouselButtonDot active={itemActive} />
+                          <CarouselButtonDot active={activeItem} />
                         </CarouselButton>
                       );
                     })}

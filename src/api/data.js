@@ -6,6 +6,7 @@ export const data = {
            "Front-End Developer",
            "UI/UX Designer", 
         ],
+        desc: "Passionate Bali-based front-end developer with expertise in building visually stunning interfaces using the latest technologies. Let's collaborate to bring your website vision to life and create something remarkable.",
         resume: "AgusWibawa-WebDesigner-CV.pdf",
         contact: "https://mail.google.com/mail/?view=cm&fs=1&to=dekgusnfs@gmail.com",
         social: {
@@ -20,32 +21,6 @@ export const data = {
     about: {
         title: "About me",
         desc: "I am an enthusiastic front-end developer and UI designer based in beautiful Bali. My passion lies in designing and building interfaces using the latest technologies. I am confident in my ability to help bring your website vision to life, whether through building it from scratch or maintaining an existing site. I am open to both remote and full-time work opportunities and am able to easily adapt to your preferred workflow and collaborate effectively with your team. If you're interested in working with me, please don't hesitate to get in touch for more information :3"
-    },
-
-    education: {
-        title: "My Education",
-        school: {
-            sd: {
-                name: "Primary Public School of 3 Dalung",
-                date: "2006 - 2013",
-                desc: "Elementary School",
-            },
-            smp: {
-                name: "Junior Public School of 3 Mengwi",
-                date: "2013 - 2016",
-                desc: "Junior High School",
-            },
-            sma: {
-                name: "Senior Public School of 2 Mengwi",
-                date: "2016 - 2019",
-                desc: "Senior High School",
-            },
-            college: {
-                name: "Institue of Technology and Business Stikom Bali",
-                date: "2019 -(Present)",
-                desc: "Bachelor's of Computer Science",
-            },
-        },
     },
 
     project: {
@@ -80,6 +55,11 @@ export const data = {
 };
 
 export const timelineData = [
+
+    {
+        year: 2019,
+        desc: "trainee admin and social media marketing"
+    },
     { 
         year: 2020,
         desc: "Working as Meat Distributor Admin",  
@@ -94,7 +74,7 @@ export const timelineData = [
     },
     {
         year: 2023,
-        desc: "Become Front end Developer and Diving completely into ReactJS, Next.js, and Node.js API Development",
+        desc: "Diving Completely to NodeJS world",
     }
 ]
 

@@ -1,7 +1,8 @@
-import { Layout } from '../layout/layout'
-import Head from 'next/head'
-import Hero from '../sections/Hero'
-import About from '../sections/About'
+import { Layout } from '../layout/layout';
+import Head from 'next/head';
+import Hero from '../sections/Hero';
+import About from '../sections/About';
+import {Project} from '../sections/Project';
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
         </Head>
         <Hero/>
         <About/>
+        <Project />
     </Layout>
   </>
   )
