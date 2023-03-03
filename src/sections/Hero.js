@@ -1,6 +1,6 @@
 import Image from "next/image"
 import imagesource from "../assets/images/hero-images/agus.webp"
-import { data } from "../api/data"
+import { data } from "../data/data"
 import ReactTyped from "react-typed"
 
 export default function Hero() {

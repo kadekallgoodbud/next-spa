@@ -2,9 +2,12 @@ import { Layout } from '../layout/layout';
 import Head from 'next/head';
 import Hero from '../sections/Hero';
 import About from '../sections/About';
-import {Project} from '../sections/Project';
+import { Project } from '../sections/Project';
+import { data } from '../data/data';
 
 export default function Home() {
+  const pval = (data.project.title) 
+  console.log(pval)
   return (
   <>
     <Layout>
@@ -16,9 +19,12 @@ export default function Home() {
           <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
         </Head>
         <Hero/>
-        <About/>
-        <Project />
+        <main className='flex flex-col gap-10'>
+          <About/>
+          <Project/>
+        </main>
     </Layout>
   </>
   )
+  
 }

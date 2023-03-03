@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { data, timelineData } from "../api/data";
+import { data, timelineData } from "../data/data";
 import styled from 'styled-components';
 
 export const CarouselContainer = styled.ul`
@@ -75,12 +75,13 @@ export const CarouselItemTitle = styled.span`
     }
 `
 export const CarouselItemImg = styled.svg`
-    margin-left: 21px;
+    margin-left: 20px;
     width: 100%;
-    fill: var(--clr-gradient);
-        
+    fill: var(--clr-link);
+    margin-top: 8px;
+    
     path {
-        fill: var(--clr-gradient);
+        fill: var(--clr-link);
     }
 
     @media (max-width: 600px) {
@@ -200,8 +201,8 @@ export default function About({}) {
 
     return(
         <>
-            <div className='container w-3/5 mx-auto '>
-                <div className='m-auto text-left flex flex-col space-y-3 '>
+            <div className='container w-3/5 mx-auto flex flex-col gap-5'>
+                <div className='m-auto text-left flex flex-col gap-5 '>
                     <h2 className='text-5xl font-bold bg-gradient-to-r from-[color:var(--clr-gradient-text)] to-[color:var(--clr-gradient-text-secondary)] bg-clip-text text-transparent'>{AboutProps.title}</h2>
                     <p className='text-lg font-normal text-[color:var(--clr-body)]'>{AboutProps.desc}</p>
                 </div>
@@ -221,9 +222,9 @@ export default function About({}) {
                           <CarouselItemTitle>
                             {`${item.year}`}
                             <CarouselItemImg
-                              width="208"
-                              height="6"
-                              viewBox="0 0 208 6"
+                              width="200"
+                              height="5"
+                              viewBox="0 0 200 5"
                               xmlns="http://www.w3.org/2000/svg">
                               <path
                                 fillRule="evenodd"
@@ -231,21 +232,6 @@ export default function About({}) {
                                 d="M2.5 5.5C3.88071 5.5 5 4.38071 5 3V3.5L208 3.50002V2.50002L5 2.5V3C5 1.61929 3.88071 0.5 2.5 0.5C1.11929 0.5 0 1.61929 0 3C0 4.38071 1.11929 5.5 2.5 5.5Z"
                                 fillOpacity="1"
                               />
-                              <defs>
-                                <linearGradient
-                                  id="paint0_linear"
-                                  x1="-4.30412e-10"
-                                  y1="0.5"
-                                  x2="208"
-                                  y2="0.500295"
-                                  gradientUnits="userSpaceOnUse">
-                                  <stop stopColor="#ffffff"></stop>
-                                  <stop
-                                    offset="0.79478"
-                                    stopColor="#fff"
-                                    stopOpacity="0"></stop>
-                                </linearGradient>
-                              </defs>
                             </CarouselItemImg>
                           </CarouselItemTitle>
                           <CarouselItemText>{`${item.desc}`}</CarouselItemText>
