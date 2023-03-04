@@ -69,6 +69,7 @@ const CardButton = createTheme({
     },
 });
 
+
 const pval = (data.project.title)
 
 function MyProject ({pdata}) {
@@ -79,25 +80,44 @@ function MyProject ({pdata}) {
         )
 } 
 
-export function Project() { 
-    
-    const fetcher = (url) => fetch(url).then((res) => res.json());
+const fetcher = (url) => fetch(url).then((res) => res.json());
+
+export function Project() {   
     const { data, error } = useSWR('/api/staticdata', fetcher);
+    const [showCount, setShowCount] = useState(3)
 
-    if (error) return <div>Failed to load</div>
-    if (!data) return <div>Loading...</div>
+    const handleShowMore = () => {
+      setShowCount((prevCount) => prevCount + 3)
+    }
 
-    console.log(data);
+    const handleShowLess = () => {
+      setShowCount(3)
+    }
+    
+    if (error) {
+        return (
+            <>
+                <span>Data Failed To Load</span>
+            </>
+        )
+    }
+    if (!data) {
+        return (
+            <>
+                <span>Loading</span>
+            </>
+        )
+    }
 
     return (
         <>  
             <div className='container w-3/5 mx-auto'>
                 <MyProject pdata={pval} />
-                <div className='grid gap-5 xs:gap-10 grid-cols-3 xs:grid-cols-1 px-7 xs:px-0'>
+                <div className='grid gap-5 xs:gap-10 grid-cols-3'>
                     {
-                        data.allProjects.map(( item, index ) =>{
-                            <>
-                                <div key={index}>
+                        data && data.allProjects.slice(0, showCount).map(( item ,i ) => {
+                            return (
+                                <div key={i}>
                                     <Box justifyItems="center">
                                         <Card variant='outlined' theme={CardStyle}>
                                             <CardContent theme={CardContet}>
@@ -108,29 +128,30 @@ export function Project() {
                                                     {item.title}
                                                 </Typography>
                                                 <Typography 
-                                                    className='text-base text-[color:var(--clr-body)] font-inter-normal' 
+                                                    /* theme={TypoDescription} */
+                                                    className='text-base text-[color:var(--clr-body)] font-normal' 
                                                     variant='body' 
                                                     component="div">
                                                     {item.desc}
                                                 </Typography>
                                                 <ul className='flex flex-row gap-2'>       
-                                                    {
-                                                    data.allProjects.stack.map(( stack, index ) => {
-                                                        return(
-                                                            <Fragment key={index}>
-                                                                <li className='text-[color:var(--clr-body)] text-sm font-inter-medium'>
-                                                                {stack}
-                                                                </li>    
-                                                            </Fragment>
-                                                        )    
-                                                    })
-                                                    }         
+                                                {
+                                                item.stack.map(( stack, i ) => {
+                                                    return(
+                                                        <li 
+                                                            key={i} 
+                                                            className='text-[color:var(--clr-body)] text-sm font-medium'>
+                                                            {stack}
+                                                        </li>    
+                                                    )    
+                                                })
+                                                }         
                                                 </ul> 
                                             <Tooltip title="See Project" placement='right-start'>
                                                 <IconButton 
                                                  theme={CardButton}  
                                                  size="small" 
-                                                 href={project.link}
+                                                 href={item.link}
                                                  rel="noreferrer" 
                                                  target="_blank">
                                                      <GitHub/>
@@ -140,11 +161,27 @@ export function Project() {
                                         </Card>
                                     </Box> 
                                 </div>   
-                            </>
+                            )    
                         })
                     }
                 </div>
             </div>
+            {
+                data && showCount < data.allProjects.length && (
+                    <button 
+                        onClick={handleShowMore}>
+                            Load More
+                    </button>
+                )
+            }
+            {
+                showCount > 3 && (
+                    <button 
+                        onClick={handleShowLess}>
+                            Show Less
+                    </button>
+                )
+            }
         </>
     )
 
