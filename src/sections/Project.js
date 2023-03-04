@@ -178,7 +178,7 @@ export function Project() {
                 showCount > 3 && (
                     <button 
                         onClick={handleShowLess}>
-                            Show Less
+                            Load Less
                     </button>
                 )
             }
