@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react';
 import useSWR from 'swr';
 import { data } from '../data/data';
 import { createTheme } from '@mui/material/styles';
-import { Box, Card, Typography, CardContent, Tooltip, IconButton } from '@mui/material/';
-import { DataArrayOutlined, GitHub } from '@mui/icons-material';
+import { Box, Typography, CardContent, Tooltip, IconButton } from '@mui/material/';
+import { GitHub } from '@mui/icons-material';
+import { ButtonMui } from '../components/Material UI/Button';
+import { CardMui } from '../components/Material UI/Card';
 
 const TypoHeading = createTheme({
     components: {
@@ -38,23 +40,6 @@ const CardContet = createTheme({
     },
 });
 
-const CardStyle = createTheme({
-    components: {
-        MuiCard: {
-            styleOverrides: {
-                root: {
-                    backgroundColor: "var(--clr-primary)",
-                    borderRadius: "15px",
-                    borderColor: "var(--clr-border-card)",
-                    '&:hover': {
-                        background: "var(--clr-gradient)",
-                        boxShadow: "0 0 15px 1px rgba(0,0,0,0.18)"
-                    },
-                },
-            },
-        },
-    },
-});
 
 const CardButton = createTheme({
     components: {
@@ -111,7 +96,7 @@ export function Project() {
 
     return (
         <>  
-            <div className='container w-3/5 mx-auto'>
+            <div className='container w-3/5 mx-auto flex flex-col gap-5 py-3'>
                 <MyProject pdata={pval} />
                 <div className='grid gap-5 xs:gap-10 grid-cols-3'>
                     {
@@ -140,7 +125,7 @@ export function Project() {
                                                     return(
                                                         <li 
                                                             key={i} 
-                                                            className='text-[color:var(--clr-body)] text-sm font-medium'>
+                                                            className='text-[color:var(--clr-text-custom)] text-sm font-medium'>
                                                             {stack}
                                                         </li>    
                                                     )    
@@ -165,23 +150,34 @@ export function Project() {
                         })
                     }
                 </div>
+                <div
+                    className='relative'>
+                    {
+                        data && showCount < data.allProjects.length && (
+                            <div
+                                className='flex item-center justify-center inset-x-0 bg-gradient-to-t from-white pt-32 pb-5 dark:from-[#001E3C] absolute bottom-[-45px]'>
+                                    <ButtonMui 
+                                        onClick={handleShowMore}>
+                                            Load More
+                                    </ButtonMui>
+                            </div>
+                        )
+                    }
+                    {
+                        showCount > 3 && (
+                            <div
+                                className='flex item-center justify-center py-5'>
+                                    <ButtonMui
+                                        onClick={handleShowLess}>
+                                            Load Less
+                                    </ButtonMui>
+                            </div>
+
+                        )
+                    }
+                </div>
             </div>
-            {
-                data && showCount < data.allProjects.length && (
-                    <button 
-                        onClick={handleShowMore}>
-                            Load More
-                    </button>
-                )
-            }
-            {
-                showCount > 3 && (
-                    <button 
-                        onClick={handleShowLess}>
-                            Load Less
-                    </button>
-                )
-            }
+            
         </>
     )
 

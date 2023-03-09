@@ -9,6 +9,7 @@
     --clr-border: #0652A0;
     --clr-border-card: #e5e7eb;
     --clr-gradient: linear-gradient(to right bottom, #007fff, #0059b2 120%);
+    --clr-gradient-hover: #FFFFFF;
     --clr-gradient-text:#0073e8;
     --clr-gradient-text-secondary: #025cb8;
 }
@@ -22,7 +23,8 @@
     --clr-text-custom: #b2bac2;
     --clr-border: #0c40b0;
     --clr-border-card:  #1e4976;
-    --clr-gradient: linear-gradient(to right bottom, #007fff, #0059b2 120%);
+    --clr-gradient: linear-gradient(to right bottom, #F3F3F3, #F3F3F3 120%);
+    --clr-gradient-hover: linear-gradient(to right bottom, #007fff, #0059b2 120%);
     --clr-gradient-text:#F3F3F3;
     --clr-gradient-text-secondary: #b2bac2;
 }

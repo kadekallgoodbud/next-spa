@@ -4,7 +4,7 @@
       {
           "id": "1",
           "title": "Snake Game",
-          "desc": "This is my first programming project created using C++",
+          "desc": "This is my first programming project created snake game in console using C++ ",
           "stack": [
               "C++"
           ],

@@ -27,6 +27,30 @@ export const data = {
         title: "My Projects",
     },
 
+    tools: {
+        title: "Technologies",
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sit amet sem vel dolor accumsan feugiat laoreet eget lorem. Curabitur cursus eros sit amet tristique iaculis. Suspendisse condimentum aliquam orci non euismod. ",
+        skills: [
+            {
+                titleSkill: "UI/UX",
+                descSkill: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+            },
+            {
+                titleSkill: "Front End",
+                descSkill: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+            }
+            ,
+            {
+                titleSkill: "Back End",
+                descSkill: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+            },
+            {
+                titleSkill: "Other",
+                descSkill: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+            }
+        ]
+    },
+
     contact: {
         heading: "Interested to collaborating with me?",
         desc: "I’m always open to discussing product design work or partnership opportunities.",

@@ -13,7 +13,7 @@ export const Layout = ({children}) => {
         <div className={`${themeName} app`}>
             <Header />
             <ButtonToggler />
-            {children}
+                {children}
             <ScrollTop />
         </div>
     </>

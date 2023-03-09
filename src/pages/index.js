@@ -2,8 +2,11 @@ import { Layout } from '../layout/layout';
 import Head from 'next/head';
 import Hero from '../sections/Hero';
 import About from '../sections/About';
+import Tools from '../sections/Tools';
+import Contact from '../sections/Contact';
 import { Project } from '../sections/Project';
 import { data } from '../data/data';
+import { Element } from "react-scroll";
 
 export default function Home() {
   const pval = (data.project.title) 
@@ -20,8 +23,18 @@ export default function Home() {
         </Head>
         <Hero/>
         <main className='flex flex-col gap-10'>
+        <Element name="section1">
           <About/>
+        </Element>
+        <Element name="section2">
           <Project/>
+        </Element>
+        <Element name="section3">
+          <Tools/>
+        </Element>
+        <Element name="section4">
+          <Contact />
+        </Element>
         </main>
     </Layout>
   </>
