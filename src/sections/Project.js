@@ -104,7 +104,7 @@ export function Project() {
                             return (
                                 <div key={i}>
                                     <Box justifyItems="center">
-                                        <Card variant='outlined' theme={CardStyle}>
+                                        <CardMui>
                                             <CardContent theme={CardContet}>
                                                 <Typography  
                                                     theme={TypoHeading} 
@@ -143,7 +143,7 @@ export function Project() {
                                                 </IconButton>
                                             </Tooltip>   
                                             </CardContent>
-                                        </Card>
+                                        </CardMui>
                                     </Box> 
                                 </div>   
                             )    

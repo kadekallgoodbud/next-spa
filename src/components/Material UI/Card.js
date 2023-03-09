@@ -25,7 +25,7 @@ const theme = createTheme({
 export const CardMui = (props) => {
     return (
         <>
-            <Card theme={theme} >
+            <Card variant='outlined' theme={theme} >
                 {props.children}
             </Card>
         </>
