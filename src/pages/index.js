@@ -4,7 +4,7 @@ import Hero from '../sections/Hero';
 import About from '../sections/About';
 import Tools from '../sections/Tools';
 import Contact from '../sections/Contact';
-import { Project } from '../sections/Project';
+import Project from '../sections/Project';
 import { data } from '../data/data';
 import { Element } from "react-scroll";
 
