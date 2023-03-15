@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, createRef } from 'react';
 import useSWR from 'swr';
 import { Box, Tooltip } from '@mui/material/';
 import { GitHub } from '@mui/icons-material';
@@ -11,9 +11,11 @@ import { IconButtonMui } from '../../components/Material UI/IconButton';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
-export const ProjectList = () => {
+export default function ProjectList() {
     const { data, error } = useSWR('api/staticdata', fetcher);
     const [ showCount, setShowCount ] = useState(3);
+
+    const ref = createRef();
 
     const handleShowMore = () => {
         setShowCount((prevCount) => prevCount + 3)
@@ -82,6 +84,7 @@ export const ProjectList = () => {
                                                 </ul> 
                                             <Tooltip title="See Project" placement='right-start'>
                                                 <IconButtonMui 
+                                                 ref={ref}
                                                  size="small" 
                                                  href={item.link}
                                                  rel="noreferrer" 
@@ -104,6 +107,18 @@ export const ProjectList = () => {
                             <div
                                 className='flex item-center justify-center inset-x-0 bg-gradient-to-t from-white pt-32 pb-5 dark:from-[#001E3C] absolute bottom-[-45px]'>
                                     <ButtonMui 
+                                        sx={{
+                                            backgroundColor: "var(--clr-border)",
+                                            borderColor: "var(--clr-border)",
+                                            "&:hover": {
+                                                backgroundColor: 'var(--clr-link)',
+                                                borderColor: 'var(--clr-link)'
+                                            },
+                                            '&:not(:hover)': { 
+                                                backgroundColor: "var(--clr-border)",
+                                                borderColor: "var(--clr-border)"
+                                            },
+                                        }}
                                         onClick={handleShowMore}>
                                             Load More
                                     </ButtonMui>
@@ -115,6 +130,18 @@ export const ProjectList = () => {
                             <div
                                 className='flex item-center justify-center py-5'>
                                     <ButtonMui
+                                        sx={{
+                                            backgroundColor: "var(--clr-border)",
+                                            borderColor: "var(--clr-border)",
+                                            "&:hover": {
+                                                backgroundColor: 'var(--clr-link)',
+                                                borderColor: 'var(--clr-link)'
+                                            },
+                                            '&:not(:hover)': { 
+                                                backgroundColor: "var(--clr-border)",
+                                                borderColor: "var(--clr-border)"
+                                            },
+                                        }}
                                         onClick={handleShowLess}>
                                             Load Less
                                     </ButtonMui>

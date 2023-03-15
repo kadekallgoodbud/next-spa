@@ -10,7 +10,7 @@ export default async function sendEmail(req, res) {
         to: "dekgusnfs@gmail.com", // Your email where you'll receive emails
         from: "dekgusnfs@gmail.com", // your website email address here
         subject: `${req.body.subject}`,
-        html: `<div>You've got a mail</div>`,
+        html: `<div> You've got a mail </div>`,
       });
     } catch (error) {
 

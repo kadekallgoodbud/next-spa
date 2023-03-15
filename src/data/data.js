@@ -52,12 +52,9 @@ export const data = {
     },
 
     contact: {
-        heading: "Interested to collaborating with me?",
+        title: "Interested to collaborating with me?",
         desc: "I’m always open to discussing product design work or partnership opportunities.",
-        button: {
-            placeholder: "Reach Out",
-            link: "https://mail.google.com/mail/?view=cm&fs=1&to=dekgusnfs@gmail.com",
-        },
+        placeholder: "Reach Out"
     },
 
     footer: {
@@ -82,23 +79,23 @@ export const timelineData = [
 
     {
         year: 2019,
-        desc: "trainee admin and social media marketing"
+        desc: "trainee digital marketing"
     },
     { 
         year: 2020,
-        desc: "Working as Meat Distributor Admin",  
+        desc: "Starting Career as Website Designer",  
     },
     {
         year: 2021,
-        desc: "Starting Career as Website Designer",
+        desc: "Becoming Junior Front End Developer",
     },
     {
         year: 2022,
-        desc: "Become Junior Front End Developer",
+        desc: "Starting my first Front End Developer Career",
     },
     {
         year: 2023,
-        desc: "Diving Completely to NodeJS world",
+        desc: "Diving Completely to Fullstack NodeJs World",
     }
 ]
 

@@ -1,3 +1,4 @@
+import React, { forwardRef } from 'react';
 import { IconButton } from '@mui/material/';
 import { createTheme } from '@mui/material/styles';
 
@@ -14,18 +15,20 @@ const theme = createTheme({
     },
 });
 
-export const IconButtonMui = (props) => {
+export const IconButtonMui = forwardRef((props, ref) => {
     return(
         <>
             <IconButton
+                {...props}
+                ref={ref}
                 theme={theme}
                 size={props.size}
                 href={props.href}
                 rel={props.rel}
                 targert={props.targert}
             >
-                {props.children}
+                <>{props.children}</>
             </IconButton>
         </>
     )
-}
+});
