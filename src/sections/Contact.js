@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import Backdrop from '@mui/material/Backdrop';
+import ContactForm from "../components/Form/Form";
 import { ButtonMui } from '../components/Material UI/Button';
 import Modal from '@mui/material/Modal';
 import { data } from "../data/data";
+
 
 export default function Contact() {
   const ContactProps = {
@@ -9,10 +12,10 @@ export default function Contact() {
       placeholder : (data.contact.placeholder)
   }
   
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-     
+
     return(
         <>
             <div className="container mx-auto w-3/5">
@@ -38,10 +41,12 @@ export default function Contact() {
                         {ContactProps.placeholder}
                     </ButtonMui>
                     <Modal 
+                    keepMounted
                     open={open}
                     onClose={handleClose}
+                    className="flex flex-col items-center justify-center"
                     ><>
-                      
+                      <ContactForm/>
                     </></Modal>
                 </div>
 
