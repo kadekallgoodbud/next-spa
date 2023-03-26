@@ -12,9 +12,9 @@ export const Layout = ({children}) => {
     <>  
     <style jsx global>{`
         :root {
-          --bg-color: ${themeName === 'light' ? '#f6f8fa' : '#222'};
-          --text-color: ${themeName === 'light' ? '#222' : '#f6f8fa'};
-          --link-color: ${themeName === 'light' ? '#1a0dab' : '#5e8dd5'};
+          --clr-bg-modal: ${themeName === 'light' ? '#CAE5FF' : '#003060'};
+          --clr-headline-modal: ${themeName === 'light' ? 'linear-gradient(to right bottom, #007fff, #0059b2 120%)' : '#F3F3F3'};
+          --clr-label-modal: ${themeName === 'light' ? '#0652A0' : '#F3F3F3'};
         }
       `}</style>
         <div className={`${themeName} app`}>

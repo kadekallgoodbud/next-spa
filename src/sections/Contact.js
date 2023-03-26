@@ -52,10 +52,10 @@ export default function Contact() {
                     ><>
                         <Box
                         sx={{
-                            backgroundColor: "var(--bg-color)",
-                            border: "solid 2px #001E3C",
-                            borderRadius: "10px",
-                            width: "500px",
+                            backgroundColor: "var(--clr-bg-modal)",
+                            borderRadius: 5,
+                            boxShadow: "0px 0px 10px 1px rgba(0, 0, 0, 0.28)",
+                            width: 600,
                         }}
                         padding={5}
                         margin={5}
