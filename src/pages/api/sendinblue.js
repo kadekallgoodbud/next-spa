@@ -5,7 +5,9 @@ const API_KEY = process.env.SENDINBLUE_API_KEY;
 export default async (req, res) => {
   if (req.method === 'POST') {
     const { name, email, message } = req.body;
-
+    // inital state of loading status
+    let isLoading = true; 
+    
     try {
       const response = await axios.post(
         'https://api.sendinblue.com/v3/smtp/email',
@@ -28,10 +30,13 @@ export default async (req, res) => {
         }
       );
 
+      isLoading = false; 
       res.status(200).json({ success: true });
+    
     } catch (error) {
       console.error(error);
-
+ 
+      isLoading = false; 
       res.status(400).json({ success: false, error: error.message });
     }
   } else {

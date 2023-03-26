@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import Backdrop from '@mui/material/Backdrop';
 import ContactForm from "../components/Form/Form";
 import { ButtonMui } from '../components/Material UI/Button';
 import Modal from '@mui/material/Modal';
 import { data } from "../data/data";
+import { Box } from "@mui/system";
 
 
 export default function Contact() {
@@ -40,13 +40,28 @@ export default function Contact() {
                     onClick={handleOpen}>
                         {ContactProps.placeholder}
                     </ButtonMui>
-                    <Modal 
+
+                    <Modal
+                    sx={{
+                        backdropFilter: setOpen ? 'blur(3px)': 'blur(0px)',
+                    }} 
                     keepMounted
                     open={open}
                     onClose={handleClose}
                     className="flex flex-col items-center justify-center"
                     ><>
-                      <ContactForm/>
+                        <Box
+                        sx={{
+                            backgroundColor: "var(--bg-color)",
+                            border: "solid 2px #001E3C",
+                            borderRadius: "10px",
+                            width: "500px",
+                        }}
+                        padding={5}
+                        margin={5}
+                        >
+                            <ContactForm/>
+                        </Box>
                     </></Modal>
                 </div>
 
