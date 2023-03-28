@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ContactForm from "../components/Form/Form";
+import CloseIcon from '@mui/icons-material/Close';
 import { ButtonMui } from '../components/Material UI/Button';
 import Modal from '@mui/material/Modal';
 import { data } from "../data/data";
@@ -26,6 +27,7 @@ export default function Contact() {
                     </h3>
                     <ButtonMui 
                     sx={{
+                      margin: "30px 0px",
                       backgroundColor: "var(--clr-border)",
                       borderColor: "var(--clr-border)",
                       "&:hover": {
@@ -56,11 +58,13 @@ export default function Contact() {
                             borderRadius: 5,
                             boxShadow: "0px 0px 10px 1px rgba(0, 0, 0, 0.28)",
                             width: 600,
+                            height: 550,
+                            position: "relative",
                         }}
                         padding={5}
                         margin={5}
-                        >
-                            <ContactForm/>
+                        >   
+                            <ContactForm closeModal={handleClose}/>
                         </Box>
                     </></Modal>
                 </div>

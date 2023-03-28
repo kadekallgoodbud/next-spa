@@ -32,3 +32,5 @@ export const IconButtonMui = forwardRef((props, ref) => {
         </>
     )
 });
+
+IconButtonMui.displayName = 'IconButtonMui';
