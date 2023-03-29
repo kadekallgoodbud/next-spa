@@ -2,14 +2,14 @@ import { useContext, useState } from 'react';
 import { ThemeContext } from '../context/theme';
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
 
-export function ButtonToggler() {
+export default function ButtonToggler() {
     const [{ themeName, toggleTheme }] = useContext(ThemeContext);
     const [isDarkMode,setDarkMode] = useState(false);
 
     //set DarkMode if it's checked 
 
     const toggleDarkMode = (checked) => {
-        setDarkMode(checked);
+        setDarkMode(checked);s
     }
 
     return(

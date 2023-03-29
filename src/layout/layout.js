@@ -1,14 +1,12 @@
 import React, { useContext } from "react"
 import ScrollTop from "../components/Scroll"
-import { ButtonToggler } from "../components/Toggle"
+import  ButtonToggler from "../components/ThemeToggler"
 import { Header } from "../sections/Header"
 import Footer from '../sections/Footer'
 import { ThemeContext } from "../context/theme"
 
 export const Layout = ({children}) => {
-    
     const [{themeName}] = useContext(ThemeContext);
-
     return (
     <>  
     <style jsx global>{`
