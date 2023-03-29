@@ -29,7 +29,7 @@ export const data = {
 
     tools: {
         title: "Technologies",
-        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sit amet sem vel dolor accumsan feugiat laoreet eget lorem. Curabitur cursus eros sit amet tristique iaculis. Suspendisse condimentum aliquam orci non euismod. ",
+        desc: "As a web developer, I have accumulated significant experience working with various technologies. My current focus is on honing my skills with React and Next.js, two powerful tools for building modern, dynamic web applications.",
         skills: [
             {
                 titleSkill: "UI/UX",
@@ -91,11 +91,11 @@ export const timelineData = [
     },
     {
         year: 2022,
-        desc: "Starting my first Front End Developer Career",
+        desc: "Starting my first Full-Stack Developer Career",
     },
     {
         year: 2023,
-        desc: "Diving Completely to Fullstack NodeJs World",
+        desc: "Diving Completely to Full-Stack NodeJs World",
     }
 ]
 

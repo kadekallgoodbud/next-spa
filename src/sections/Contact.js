@@ -19,10 +19,10 @@ export default function Contact() {
 
     return(
         <>
-            <div className="container mx-auto w-3/5">
+            <div className="container mx-auto w-3/5 min-h-[500px] flex flex-col justify-center align-middle">
                 <div className=" flex flex-col items-center ">
                     <h3
-                     className="text-3xl font-bold bg-gradient-to-r from-[color:var(--clr-gradient-text)] to-[color:var(--clr-gradient-text-secondary)] bg-clip-text text-transparent leading-normal">
+                     className="text-5xl font-bold bg-gradient-to-r from-[color:var(--clr-gradient-text)] to-[color:var(--clr-gradient-text-secondary)] bg-clip-text text-transparent leading-normal">
                         {ContactProps.title}
                     </h3>
                     <ButtonMui 
@@ -64,7 +64,7 @@ export default function Contact() {
                         padding={5}
                         margin={5}
                         >   
-                            <ContactForm closeModal={handleClose}/>
+                            <ContactForm onClick={() => setOpen(false)}/>
                         </Box>
                     </></Modal>
                 </div>

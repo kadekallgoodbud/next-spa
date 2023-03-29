@@ -43,6 +43,10 @@ export default function ContactForm(props) {
       
   };
 
+  const handleReset = () => {
+      setFormData({name: '', email: '', message: ''});
+  }
+
   // Call handleReset when the formStatus changes
   useEffect(() => {
     let timer;
@@ -68,14 +72,16 @@ export default function ContactForm(props) {
         <h2 className='text-3xl font-bold bg-gradient-to-r from-[color:var(---clr-headline-gradient)] to-[color:var(---clr-headline-gradient-secondary)] bg-clip-text text-transparent leading-normal mt-3 mb-7'>Contact Me</h2>
          <div className='flex flex-col gap-3'>
             <label className='text-md font-medium text-[color:var(--clr-label-modal)]' htmlFor="name">Name</label>
-            <input placeholder='Your name...' className='h-10 px-3 py-2 text-base rounded-lg border-[1px] text-[color:var(--clr-input-text-modal)] border-solid border-[color:var(--clr-border-label)] bg-[color:var(--clr-input-modal)]' type="text" name="name"  id="name" value={formData.name} onChange={handleInputChange}  required onInvalid={e => e.target.setCustomValidity("Name is required")} onInput={e => e.target.setCustomValidity("")}/>
+            <input placeholder='Your name...' className='h-10 px-3 focus:outline-none py-2 text-base rounded-lg border-[1px] text-[color:var(--clr-input-text-modal)] border-solid border-[color:var(--clr-border-label)] bg-[color:var(--clr-input-modal)]' type="text" name="name"  id="name" value={formData.name} onChange={handleInputChange}  required onInvalid={e => e.target.setCustomValidity("Name is required")} onInput={e => e.target.setCustomValidity("")}/>
+            
             <label className='text-md font-medium text-[color:var(--clr-label-modal)]' htmlFor="email">Email</label>
-            <input placeholder='Your email...' className='h-10 px-3 py-2 text-base rounded-lg border-[1px] text-[color:var(--clr-input-text-modal)] border-solid border-[color:var(--clr-border-label)] bg-[color:var(--clr-input-modal)]' type="email" name="email"  id="email" value={formData.email} onChange={handleInputChange} required onInvalid={e => e.target.setCustomValidity("Email is required")} onInput={e => e.target.setCustomValidity("")} />
+            <input placeholder='Your email...' className='h-10 px-3 focus:outline-none py-2 text-base rounded-lg border-[1px] text-[color:var(--clr-input-text-modal)] border-solid border-[color:var(--clr-border-label)] bg-[color:var(--clr-input-modal)]' type="email" name="email"  id="email" value={formData.email} onChange={handleInputChange} required onInvalid={e => e.target.setCustomValidity("Email is required and enter a valid email address")} onInput={e => e.target.setCustomValidity("")} />
+            
             <label className='text-md font-medium text-[color:var(--clr-label-modal)]' htmlFor="message">Message</label>
-            <textarea placeholder="Tell me something here..." className="h-24 px-3 py-2 text-base rounded-lg border-[1px] text-[color:var(--clr-input-text-modal)] border-solid border-[color:var(--clr-border-label)] bg-[color:var(--clr-input-modal)]" name="message"  id="message" value={formData.message} onChange={handleInputChange} required onInvalid={e => e.target.setCustomValidity("Message is required")} onInput={e => e.target.setCustomValidity("")} ></textarea>
+            <textarea placeholder="Tell me something here..." className="h-24 px-3 focus:outline-none py-2 text-base rounded-lg border-[1px] text-[color:var(--clr-input-text-modal)] border-solid border-[color:var(--clr-border-label)] bg-[color:var(--clr-input-modal)]" name="message"  id="message" value={formData.message} onChange={handleInputChange} required onInvalid={e => e.target.setCustomValidity("Message is required")} onInput={e => e.target.setCustomValidity("")} ></textarea>
          </div>
          <div className='flex flex-row items-center justify-end gap-8 px-4 py-2 absolute bottom-5 right-5 '>
-            <button type='button' onClick={props.onClick} className='text-[color:var(--clr-label-modal)] text-md font-medium'>Cancle</button>
+            <button type='button' onClick={() => { handleReset(); props.onClick(); }} className='text-[color:var(--clr-label-modal)] text-md font-medium'>Cancle</button>
             <button className='text-white text-md bg-[#0C40B0] px-4 py-2 rounded-lg ' type="submit" disabled={isLoading}>
               {isLoading ? (
                 <>
