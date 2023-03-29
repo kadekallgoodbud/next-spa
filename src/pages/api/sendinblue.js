@@ -2,7 +2,7 @@ const axios = require('axios')
 
 const API_KEY = process.env.SENDINBLUE_API_KEY;
 
-export default async (req, res) => {
+const sendinBlue = async (req, res) => {
   if (req.method === 'POST') {
     const { name, email, message } = req.body;
     // inital state of loading status
@@ -43,3 +43,5 @@ export default async (req, res) => {
     res.status(405).json({ success: false, error: 'Method not allowed' });
   }
 };
+
+export default sendinBlue;
