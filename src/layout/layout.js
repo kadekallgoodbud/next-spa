@@ -25,7 +25,7 @@ export const Layout = ({children}) => {
           --clr-exit-bg-modal: ${themeName === 'light' ? '#CAE5FF' : '#094178'};
         }
       `}</style>
-        <div className={`${themeName} app`}>
+        <div className={`${themeName} app`}>   
             <Header />
             <ButtonToggler />
                 {children}

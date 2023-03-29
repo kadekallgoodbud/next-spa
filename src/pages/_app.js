@@ -1,7 +1,6 @@
 import '../styles/globals.css'
 import { ThemeProvider } from '../context/theme'
 import { Inter } from '@next/font/google'
-import { BrowserRouter } from 'react-router-dom';
 
 const inter = Inter({ subsets: ['latin'] })
 
