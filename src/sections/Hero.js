@@ -14,7 +14,7 @@ export default function Hero() {
     return(
         <>
             <div className="container w-3/5 min-h-screen flex items-center justify-start mx-auto">
-                <div className="text-left">
+                <div className="text-left z-50">
                     <Image placeholder="empty" width={160} height={160} src={imagesource} alt="Hero Image" className="border-solid border-2 border-[#1a58a4] rounded-full object-cover" />
                     <h1 className="bg-gradient-to-r from-[color:var(--clr-gradient-text)] to-[color:var(--clr-gradient-text-secondary)] bg-clip-text text-transparent leading-normal text-[55px] xs:text-5xl xs:leading-tight font-bold">{HeroProps.intro}</h1>
                     <h2 className="mt-[-8px] pb-2 bg-gradient-to-r from-[color:var(--clr-gradient-text)] to-[color:var(--clr-gradient-text-secondary)] bg-clip-text text-transparent text-[55px] leading-normal xs:text-4xl xs:leading-tight font-bold">{HeroProps.name}</h2>
@@ -30,7 +30,7 @@ export default function Hero() {
                     <p className="text-lg text-[color:var(--clr-body)] font-normal py-3">
                         {HeroProps.desc}
                     </p>
-                </div>                
+                </div>                   
             </div>
         </>
     )
