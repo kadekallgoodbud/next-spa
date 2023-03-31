@@ -41,7 +41,7 @@ export default function ProjectList() {
     }
     return (
         <>
-            <div className='grid gap-5 xs:gap-10 grid-cols-3'>
+            <div className='grid gap-5 xs:gap-10 grid-cols-3 xs:grid-cols-1'>
                     {
                         data && data.allProjects.slice(0, showCount).map(( item ,i ) => {
                             return (

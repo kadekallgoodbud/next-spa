@@ -7,8 +7,8 @@ export default function Project() {
 
     return (
         <>  
-            <div className='container w-3/5 mx-auto flex flex-col gap-5 py-3'>
-                <h2 className="text-5xl font-bold bg-gradient-to-r from-[color:var(--clr-gradient-text)] to-[color:var(--clr-gradient-text-secondary)] bg-clip-text text-transparent leading-normal" >{projectProps.title}</h2>
+            <div className='container w-3/5 xs:w-4/5 mx-auto flex flex-col gap-5 py-3'>
+                <h2 className="text-5xl xs:text-2xl font-bold bg-gradient-to-r from-[color:var(--clr-gradient-text)] to-[color:var(--clr-gradient-text-secondary)] bg-clip-text text-transparent leading-normal" >{projectProps.title}</h2>
                 <ProjectList />
             </div>
             

@@ -11,6 +11,12 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
+      screens: {
+        // adding xs to the rest
+        xs: {"max": "500px"},
+        // if you did not add this, you would have only "xs"
+        ...defaultTheme.screens,
+      },
     },
   },
   plugins: [],

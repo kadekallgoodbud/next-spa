@@ -201,10 +201,10 @@ export default function About({}) {
 
     return(
         <>
-            <div className='container w-3/5 mx-auto flex flex-col gap-5 pt-6 pb-3'>
+            <div className='container w-3/5 xs:w-4/5 mx-auto flex flex-col gap-5 pt-6 pb-3'>
                 <div className='m-auto text-left flex flex-col gap-5 '>
-                    <h2 className='text-5xl font-bold bg-gradient-to-r from-[color:var(--clr-gradient-text)] to-[color:var(--clr-gradient-text-secondary)] bg-clip-text text-transparent'>{AboutProps.title}</h2>
-                    <p className='text-lg font-normal text-[color:var(--clr-body)]'>{AboutProps.desc}</p>
+                    <h2 className='text-5xl xs:text-2xl font-bold bg-gradient-to-r from-[color:var(--clr-gradient-text)] to-[color:var(--clr-gradient-text-secondary)] bg-clip-text text-transparent'>{AboutProps.title}</h2>
+                    <p className='text-lg xs:text-sm font-normal text-[color:var(--clr-body)]'>{AboutProps.desc}</p>
                 </div>
                 <CarouselContainer ref={carouselRef} onScroll={handleScroll}>
                     {
