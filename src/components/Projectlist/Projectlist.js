@@ -62,7 +62,7 @@ export default function ProjectList() {
                             }
                         }}
                     >
-                     Uh oh! We can't connect to our server right now, maybe check your internet? Try again later or hit us up for help. Sorry about that!
+                     Uh oh! We can&apos;t connect to our server right now, maybe check your internet? Try again later or hit us up for help. Sorry about that!
                     </TypographyMui>
                 </Stack>
             </>
