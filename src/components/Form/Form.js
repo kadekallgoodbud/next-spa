@@ -53,12 +53,12 @@ export default function ContactForm(props) {
     if (formStatus === 'success') {
       timer = setTimeout(() => {
         setFormStatus(null);
-      }, 1000000000); // show the message for 5 seconds
+      }, 5000); // show the message for 5 seconds
     }
     else if (formStatus === 'error') {
       timer = setTimeout(() => {
         setFormStatus(null);
-      }, 1000000000); // show the message for 5 seconds
+      }, 5000); // show the message for 5 seconds
     }
     return () => {
       clearTimeout(timer);

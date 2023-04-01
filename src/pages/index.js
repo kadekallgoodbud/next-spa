@@ -1,10 +1,12 @@
 import { Layout } from '../layout/layout';
+import { Header } from '../sections/Header';
 import Head from 'next/head';
 import Hero from '../sections/Hero';
 import About from '../sections/About';
 import Tools from '../sections/Tools';
 import Project from '../sections/Project';
 import Contact from '../sections/Contact';
+import Footer from '../sections/Footer'
 import { data } from '../data/data';
 import { Element } from "react-scroll";
 
@@ -15,14 +17,15 @@ export default function Home() {
   <>
     <Layout>
         <Head>
-          <link rel="icon" href="https://blog.logrocket.com/wp-content/uploads/2019/06/cropped-cropped-favicon-196x196-32x32.png" sizes="32x32" />
+          <link rel="icon" href="/logoAW.webp" sizes="32x32" />
           <meta charSet="UTF-8"></meta>
           <meta name="description" content="Next SPA"></meta>
           <meta name="author" content="Agus Wibawa"></meta>
           <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
         </Head>
+        <Header show_defaultHeader={true} />
         <Hero/>
-        <main className='flex flex-col gap-10'>
+        <main className='flex flex-col gap-10 xs:gap-6'>
         <Element name="section1">
           <About/>
         </Element>
@@ -36,6 +39,7 @@ export default function Home() {
           <Contact />
         </Element>
         </main>
+        <Footer/>
     </Layout>
   </>
   )

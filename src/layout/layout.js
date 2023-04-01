@@ -1,7 +1,6 @@
 import React, { useContext } from "react"
 import ScrollTop from "../components/Scroll"
 import  ButtonToggler from "../components/ThemeToggler"
-import { Header } from "../sections/Header"
 import Footer from '../sections/Footer'
 import { ThemeContext } from "../context/theme"
 
@@ -24,11 +23,9 @@ export const Layout = ({children}) => {
         }
       `}</style>
         <div className={`${themeName} app`}>   
-            <Header />
             <ButtonToggler />
                 {children}
             <ScrollTop />
-            <Footer/>
         </div>
     </>
     )

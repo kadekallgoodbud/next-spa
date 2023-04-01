@@ -90,42 +90,114 @@ export const Drawer = styled.nav`
 
 
 
-export const DrawerLayout = ({ open,setOpen}) => {
+export const DrawerLayout = ({ open,setOpen, show_DefaultDrawerLayout, show_ErrorDrawerLayout }) => {
   const isMobile = useMediaQuery('(max-width:600px)');
-
     return (
       <>
-        { isMobile ? (
-            <Drawer open={open}>
-              <Link to="section1" spy={true} onClick={() => setOpen(!open)} smooth={true} duration={500} className="cursor-pointer text-2xl text-[color:var(--clr-navigation-text)] transition-transform duration-200 ease-in-out hover:scale-110 font-bold tracking-wider flex align-center justify-center my-3">
-                About
-              </Link>
-              <Link to="section2" spy={true} onClick={() => setOpen(!open)} smooth={true} duration={500} className="cursor-pointer text-2xl text-[color:var(--clr-navigation-text)] transition-transform duration-200 ease-in-out hover:scale-110 font-bold tracking-wider flex align-center justify-center my-3">
-                Project
-              </Link>
-              <Link to="section3" spy={true} onClick={() => setOpen(!open)} smooth={true} duration={500} className="cursor-pointer text-2xl text-[color:var(--clr-navigation-text)] transition-transform duration-200 ease-in-out hover:scale-110 font-bold tracking-wider flex align-center justify-center my-3">
-                Tech
-              </Link>
-              <Link to="section4" spy={true} onClick={() => setOpen(!open)} smooth={true} duration={500} className="cursor-pointer text-2xl text-[color:var(--clr-navigation-text)] transition-transform duration-200 ease-in-out hover:scale-110 font-bold tracking-wider flex align-center justify-center my-3">
-                Contact
-              </Link>
-            </Drawer>
-          ):(
-            <Drawer open={open}>
-              <Link to="section1" spy={true} smooth={true} duration={500} className="cursor-pointer text-3xl text-[color:var(--clr-navigation-text)] transition-transform duration-200 ease-in-out hover:scale-110 font-bold tracking-wider flex align-center justify-center my-4">
-                About
-              </Link>
-              <Link to="section2" spy={true} smooth={true} duration={500} className="cursor-pointer text-3xl text-[color:var(--clr-navigation-text)] transition-transform duration-200 ease-in-out hover:scale-110 font-bold tracking-wider flex align-center justify-center my-4">
-                Project
-              </Link>
-              <Link to="section3" spy={true} smooth={true} duration={500} className="cursor-pointer text-3xl text-[color:var(--clr-navigation-text)] transition-transform duration-200 ease-in-out hover:scale-110 font-bold tracking-wider flex align-center justify-center my-4">
-                Tech
-              </Link>
-              <Link to="section4" spy={true} smooth={true} duration={500} className="cursor-pointer text-3xl text-[color:var(--clr-navigation-text)] transition-transform duration-200 ease-in-out hover:scale-110 font-bold tracking-wider flex align-center justify-center my-4">
-                Contact
-              </Link>
-            </Drawer>
-          )}    
+        {
+        show_DefaultDrawerLayout && 
+        (
+            <>
+              { isMobile ? (
+                <Drawer open={open}>
+                  <Link 
+                    to="section1" 
+                    spy={true} 
+                    onClick={() => setOpen(!open)} 
+                    smooth={true} 
+                    duration={500} 
+                    className="cursor-pointer text-2xl text-[color:var(--clr-navigation-text)] transition-transform duration-200 ease-in-out hover:scale-110 font-bold tracking-wider flex align-center justify-center my-3"
+                    >
+                      About
+                  </Link>
+                  <Link 
+                    to="section2" 
+                    spy={true} 
+                    onClick={() => setOpen(!open)} 
+                    smooth={true} 
+                    duration={500} 
+                    className="cursor-pointer text-2xl text-[color:var(--clr-navigation-text)] transition-transform duration-200 ease-in-out hover:scale-110 font-bold tracking-wider flex align-center justify-center my-3"
+                    >
+                      Project
+                  </Link>
+                  <Link 
+                    to="section3" 
+                    spy={true} 
+                    onClick={() => setOpen(!open)} 
+                    smooth={true} 
+                    duration={500} 
+                    className="cursor-pointer text-2xl text-[color:var(--clr-navigation-text)] transition-transform duration-200 ease-in-out hover:scale-110 font-bold tracking-wider flex align-center justify-center my-3"
+                  >
+                      Tech
+                  </Link>
+                  <Link 
+                    to="section4" 
+                    spy={true} 
+                    onClick={() => setOpen(!open)} 
+                    smooth={true} 
+                    duration={500} 
+                    className="cursor-pointer text-2xl text-[color:var(--clr-navigation-text)] transition-transform duration-200 ease-in-out hover:scale-110 font-bold tracking-wider flex align-center justify-center my-3"
+                    >
+                    Contact
+                  </Link>
+                </Drawer>
+              ):(
+                <Drawer open={open}>
+                  <Link 
+                    to="section1" 
+                    spy={true} 
+                    smooth={true} 
+                    duration={500} 
+                    className="cursor-pointer text-3xl text-[color:var(--clr-navigation-text)] transition-transform duration-200 ease-in-out hover:scale-110 font-bold tracking-wider flex align-center justify-center my-4"
+                  >
+                      About
+                  </Link>
+                  <Link 
+                    to="section2" 
+                    spy={true} 
+                    smooth={true} 
+                    duration={500} 
+                    className="cursor-pointer text-3xl text-[color:var(--clr-navigation-text)] transition-transform duration-200 ease-in-out hover:scale-110 font-bold tracking-wider flex align-center justify-center my-4"
+                  >
+                      Project
+                  </Link>
+                  <Link 
+                    to="section3" 
+                    spy={true} 
+                    smooth={true} 
+                    duration={500} 
+                    className="cursor-pointer text-3xl text-[color:var(--clr-navigation-text)] transition-transform duration-200 ease-in-out hover:scale-110 font-bold tracking-wider flex align-center justify-center my-4"
+                  >
+                      Tech
+                  </Link>
+                  <Link 
+                    to="section4" 
+                    spy={true} 
+                    smooth={true} 
+                    duration={500} 
+                    className="cursor-pointer text-3xl text-[color:var(--clr-navigation-text)] transition-transform duration-200 ease-in-out hover:scale-110 font-bold tracking-wider flex align-center justify-center my-4"
+                  >
+                      Contact
+                  </Link>
+                </Drawer>
+              )}    
+            </>   
+        )
+      }
+      {
+        show_ErrorDrawerLayout && (
+          <>
+          <Drawer open={open}>
+            <Link 
+              href="/"
+              className="cursor-pointer text-3xl text-[color:var(--clr-navigation-text)] transition-transform duration-200 ease-in-out hover:scale-110 font-bold tracking-wider flex align-center justify-center my-4"
+            >
+                Home
+            </Link>
+          </Drawer>
+          </>
+        )
+      }
       </>
     )
 }

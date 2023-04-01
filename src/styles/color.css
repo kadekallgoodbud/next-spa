@@ -13,6 +13,7 @@
     --clr-gradient-text:#0073e8;
     --clr-gradient-text-secondary: #025cb8;
     --clr-navigation-text: #0072e6;
+    --clr-border-404: #0652A0;
 }
   .dark{
     --clr-primary: #001E3C;
@@ -29,5 +30,6 @@
     --clr-gradient-text:#F3F3F3;
     --clr-gradient-text-secondary: #b2bac2;
     --clr-navigation-text: #F3F3F3;
+    --clr-border-404: #1a58a4;
 }
 

@@ -99,6 +99,10 @@ export const timelineData = [
     }
 ]
 
-
+export const fourcode = {
+    title: "Oops, Looks Like You're Lost",
+    desc: "We're sorry, but the page you're looking for seems to be missing. It may have been removed or never existed in the first place.",
+    buttonPlaceholder: "Let's Get You Back on Track",
+}
 
 
