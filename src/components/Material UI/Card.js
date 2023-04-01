@@ -15,6 +15,9 @@ const theme = createTheme({
                         background: "var(--clr-gradient-hover)",
                         boxShadow: "0 0 15px 1px rgba(0,0,0,0.18)"
                     },
+                    '@media (max-width: 600px)' : {
+                        height: '100%'
+                    },
                 },
             },
         },

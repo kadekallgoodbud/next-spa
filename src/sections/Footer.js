@@ -35,8 +35,8 @@ function Footer() {
       <Fragment>
       <div className='bg-[color:var(--clr-tertiary)] border-t-[1px] border-[#1a3d61] min-h-full py-8 mx-auto'>
          <div className='container mx-auto flex flex-row xs:flex-col'>
-          <div className='flex items-center justify-start xs:justify-center w-2/4 xs:w-full'>
-                <Image alt='footer logo' height={80} width={315} className='float-left xs:float-none' src="/BannerFooter.webp" />
+          <div className='flex items-center justify-start xs:justify-center w-2/4 xs:w-full xs:py-4'>
+                <Image alt='footer logo' height={80} width={315} className=' xs:w-[280px] float-left xs:float-none' src="/BannerFooter.webp" />
           </div>
           <div className='flex items-center justify-end xs:justify-center w-2/4 xs:w-full'>
                 <h4 className='float-right xs:float-none'>  </h4>

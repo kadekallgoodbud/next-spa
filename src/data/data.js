@@ -33,20 +33,20 @@ export const data = {
         skills: [
             {
                 titleSkill: "UI/UX",
-                descSkill: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+                descSkill: " Figma, Adobe Photoshop, Adobe illustrator, Zeplin, Adobe XD."
             },
             {
                 titleSkill: "Front End",
-                descSkill: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+                descSkill: " WordPress, HTML & CSS, Bulma, MaterialUI, Angular Material, Bootstrap, TailwindCSS, JavaScript, jQuery, Gatsby, NextJs, ReactJs, Typescript, Angular."
             }
             ,
             {
                 titleSkill: "Back End",
-                descSkill: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+                descSkill: "Joomla, WordPress, Sanity, Strapi, GraphQL, Rest API, PHP, Laravel, CodeIgniter, Express, NextJs."
             },
             {
                 titleSkill: "Other",
-                descSkill: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+                descSkill: "MySQL, Docker, Kubernetes, Git, Trello, Jira, Slack, BrowserStack, Sentry."
             }
         ]
     },

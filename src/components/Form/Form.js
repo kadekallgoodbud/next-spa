@@ -53,12 +53,12 @@ export default function ContactForm(props) {
     if (formStatus === 'success') {
       timer = setTimeout(() => {
         setFormStatus(null);
-      }, 4000); // show the message for 5 seconds
+      }, 1000000000); // show the message for 5 seconds
     }
     else if (formStatus === 'error') {
       timer = setTimeout(() => {
         setFormStatus(null);
-      }, 4000); // show the message for 5 seconds
+      }, 1000000000); // show the message for 5 seconds
     }
     return () => {
       clearTimeout(timer);
@@ -69,20 +69,53 @@ export default function ContactForm(props) {
   <>
     <div className='w-full p-0'>
       <form onSubmit={handleSubmit} >
-        <h2 className='text-3xl font-bold bg-gradient-to-r from-[color:var(---clr-headline-gradient)] to-[color:var(---clr-headline-gradient-secondary)] bg-clip-text text-transparent leading-normal mt-3 mb-7'>Contact Me</h2>
+        <h2 className='text-3xl xs:text-2xl font-bold bg-gradient-to-r from-[color:var(---clr-headline-gradient)] to-[color:var(---clr-headline-gradient-secondary)] bg-clip-text text-transparent leading-normal mt-3 mb-7 xs:mb-4'>Contact Me</h2>
          <div className='flex flex-col gap-3'>
             <label className='text-md font-medium text-[color:var(--clr-label-modal)]' htmlFor="name">Name</label>
-            <input placeholder='Your name...' className='h-10 px-3 focus:outline-none py-2 text-base rounded-lg border-[1px] text-[color:var(--clr-input-text-modal)] border-solid border-[color:var(--clr-border-label)] bg-[color:var(--clr-input-modal)]' type="text" name="name"  id="name" value={formData.name} onChange={handleInputChange}  required onInvalid={e => e.target.setCustomValidity("Name is required")} onInput={e => e.target.setCustomValidity("")}/>
+            <input placeholder='Your name...' className='h-10 px-3 focus:outline-none py-2 text-base xs:text-sm rounded-lg border-[1px] text-[color:var(--clr-input-text-modal)] border-solid border-[color:var(--clr-border-label)] bg-[color:var(--clr-input-modal)]' type="text" name="name"  id="name" value={formData.name} onChange={handleInputChange}  required onInvalid={e => e.target.setCustomValidity("Name is required")} onInput={e => e.target.setCustomValidity("")}/>
             
             <label className='text-md font-medium text-[color:var(--clr-label-modal)]' htmlFor="email">Email</label>
-            <input placeholder='Your email...' className='h-10 px-3 focus:outline-none py-2 text-base rounded-lg border-[1px] text-[color:var(--clr-input-text-modal)] border-solid border-[color:var(--clr-border-label)] bg-[color:var(--clr-input-modal)]' type="email" name="email"  id="email" value={formData.email} onChange={handleInputChange} required onInvalid={e => e.target.setCustomValidity("Email is required and enter a valid email address")} onInput={e => e.target.setCustomValidity("")} />
+            <input placeholder='Your email...' className='h-10 px-3 focus:outline-none py-2 text-base xs:text-sm rounded-lg border-[1px] text-[color:var(--clr-input-text-modal)] border-solid border-[color:var(--clr-border-label)] bg-[color:var(--clr-input-modal)]' type="email" name="email"  id="email" value={formData.email} onChange={handleInputChange} required onInvalid={e => e.target.setCustomValidity("Email is required and enter a valid email address")} onInput={e => e.target.setCustomValidity("")} />
             
             <label className='text-md font-medium text-[color:var(--clr-label-modal)]' htmlFor="message">Message</label>
-            <textarea placeholder="Tell me something here..." className="h-24 px-3 focus:outline-none py-2 text-base rounded-lg border-[1px] text-[color:var(--clr-input-text-modal)] border-solid border-[color:var(--clr-border-label)] bg-[color:var(--clr-input-modal)]" name="message"  id="message" value={formData.message} onChange={handleInputChange} required onInvalid={e => e.target.setCustomValidity("Message is required")} onInput={e => e.target.setCustomValidity("")} ></textarea>
+            <textarea placeholder="Tell me something here..." className="h-24 px-3 focus:outline-none py-2 text-base xs:text-sm rounded-lg border-[1px] text-[color:var(--clr-input-text-modal)] border-solid border-[color:var(--clr-border-label)] bg-[color:var(--clr-input-modal)]" name="message"  id="message" value={formData.message} onChange={handleInputChange} required onInvalid={e => e.target.setCustomValidity("Message is required")} onInput={e => e.target.setCustomValidity("")} ></textarea>
          </div>
-         <div className='flex flex-row items-center justify-end gap-8 px-4 py-2 absolute bottom-5 right-5 '>
-            <button type='button' onClick={() => { handleReset(); props.onClick(); }} className='text-[color:var(--clr-label-modal)] text-md font-medium'>Cancle</button>
-            <button className='text-white text-md bg-[#0C40B0] px-4 py-2 rounded-lg ' type="submit" disabled={isLoading}>
+
+          {/* Callback Status Message */}
+          <div className='callback-response-wrapper mt-5 p-0 mb-0'>
+            {formStatus === 'success' && (
+              <div className='flex flex-row gap-3 xs:gap-2 items-center'>
+                <CheckCircleOutlineIcon 
+                sx={{
+                  fill:"#16A34A",
+                  fontSize:"15px",
+                  '@media (max-width: 600px)': {
+                    fontSize: '13px',
+                  }
+                }}
+                />
+                <p className=' text-sm text-green-600 font-md '>Thank you! Your message has been sent.</p>
+              </div>  
+            )}
+            {formStatus === 'error' && (
+              <div className='flex flex-row gap-3 xs:gap-2 items-center'>
+                <ErrorOutlineIcon 
+                sx={{
+                  fill:"#DC2626",
+                  fontSize:"15px",
+                  '@media (max-width: 600px)': {
+                    fontSize: '13px',
+                  }
+                  }}
+                />
+                <p className=' text-sm text-red-600 font-md '>Sorry, there was an error sending your message. Please try again later.</p>
+              </div>  
+            )}
+          </div>
+
+         <div className='flex flex-row items-center justify-end gap-8 xs:gap-6 pt-4 '>
+            <button type='button' onClick={() => { handleReset(); props.onClick(); }} className='text-[color:var(--clr-label-modal)] text-md xs:text-sm font-medium'>Cancle</button>
+            <button className='text-white text-md xs:text-sm bg-[#0C40B0] px-4 py-2 rounded-lg ' type="submit" disabled={isLoading}>
               {isLoading ? (
                 <>
                   <div className='flex flex-row gap-2' role="status">
@@ -105,24 +138,7 @@ export default function ContactForm(props) {
               )}
             </button>
           </div>
-      </form>
-
-      {/* Callback Status Message */}
-      <div className='callback-response-wrapper my-4'>
-        {formStatus === 'success' && (
-          <div className='flex flex-row gap-3 items-center'>
-            <CheckCircleOutlineIcon sx={{fill:"#16A34A",fontSize:"15px"}}/>
-            <p className=' text-sm text-green-600 font-md '>Thank you! Your message has been sent.</p>
-          </div>  
-        )}
-        {formStatus === 'error' && (
-          <div className='flex flex-row gap-3 items-center'>
-            <ErrorOutlineIcon sx={{fill:"#DC2626",fontSize:"15px"}}/>
-            <p className=' text-sm text-red-600 font-md '>Sorry, there was an error sending your message. Please try again later.</p>
-          </div>  
-        )}
-      </div>
-                
+      </form>                
     </div>
   </>
   );

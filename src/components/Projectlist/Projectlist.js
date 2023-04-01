@@ -1,18 +1,28 @@
-import React, { useState, createRef } from 'react';
+import React, { 
+    useState, 
+    createRef 
+} from 'react';
+import CircularProgress, {
+    circularProgressClasses,       
+    CircularProgressProps, 
+} from '@mui/material/CircularProgress';
 import useSWR from 'swr';
-import { Box, Tooltip } from '@mui/material/';
+import { Stack, Box, Tooltip, Skeleton } from '@mui/material/';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import { GitHub } from '@mui/icons-material';
 import { ButtonMui } from '../../components/Material UI/Button';
 import { CardMui } from '../../components/Material UI/Card';
 import { CardContentMui } from '../../components/Material UI/CardContent';
 import { TypographyMui } from '../../components/Material UI/Typography';
 import { IconButtonMui } from '../../components/Material UI/IconButton';
+import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
+import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
 
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
 export default function ProjectList() {
-    const { data, error } = useSWR('api/staticdata', fetcher);
+    const { data, error, isLoading } = useSWR('api/staticdata', fetcher);
     const [ showCount, setShowCount ] = useState(3);
 
     const ref = createRef();
@@ -28,20 +38,72 @@ export default function ProjectList() {
     if (error) {
         return (
             <>
-                <span>Data Failed To Load</span>
+                <Stack
+                    direction="column"
+                    gap="15px"
+                    justifyContent="center"
+                    alignItems="center"
+                >
+                    <ErrorOutlineIcon 
+                        sx={{
+                            fill: "#f53331", 
+                            width: "90px", 
+                            height: "90px",
+                        }}
+                    />
+                    <TypographyMui
+                        sx={{
+                            fontSize: '1.5rem',
+                            color: 'var(--clr-body)',
+                            fontWeight: '600',
+                            textAlign: 'center',
+                            '@media (max-width: 600px)': {
+                                fontSize: '17px',
+                            }
+                        }}
+                    >
+                     Uh oh! We can't connect to our server right now, maybe check your internet? Try again later or hit us up for help. Sorry about that!
+                    </TypographyMui>
+                </Stack>
             </>
         )
     }
-    if (!data) {
+    if (!data || isLoading) {
         return (
             <>
-                <span>Loading</span>
+               <Box sx={{ position: 'relative', margin: "0px auto"}}>
+                    <CircularProgress
+                      variant="determinate"
+                      sx={{
+                        color: (theme) =>
+                          theme.palette.grey[theme.palette.mode === 'light' ? 200 : 800],
+                      }}
+                      size={40}
+                      thickness={4}
+                      value={100}
+                    />
+                    <CircularProgress
+                      variant="indeterminate"
+                      disableShrink
+                      sx={{
+                        color: (theme) => (theme.palette.mode === 'light' ? '#1a90ff' : '#308fe8'),
+                        animationDuration: '550ms',
+                        position: 'absolute',
+                        left: 0,
+                        [`& .${circularProgressClasses.circle}`]: {
+                          strokeLinecap: 'round',
+                        },
+                      }}
+                      size={40}
+                      thickness={4}
+                    />
+                </Box>
             </>
         )
     }
     return (
         <>
-            <div className='grid gap-5 xs:gap-10 grid-cols-3 xs:grid-cols-1'>
+            <div className='grid gap-5 xs:gap-5 grid-cols-3 xs:grid-cols-1'>
                     {
                         data && data.allProjects.slice(0, showCount).map(( item ,i ) => {
                             return (
@@ -53,7 +115,12 @@ export default function ProjectList() {
                                                     sx={{
                                                         fontSize: '25px',
                                                         fontWeight: '600',
-                                                        color: 'var(--clr-secondary)',
+                                                        backgroundImage: 'var(--clr-gradient)',
+                                                        WebkitBackgroundClip: 'text',
+                                                        WebkitTextFillColor: 'transparent',
+                                                        '@media (max-width: 600px)': {
+                                                            fontSize: '20px'
+                                                        }
                                                     }}
                                                     variant='h4' 
                                                     component="div">
@@ -64,6 +131,9 @@ export default function ProjectList() {
                                                         fontSize: '1rem',
                                                         color: 'var(--clr-body)',
                                                         fontWeight: 'normal',
+                                                        '@media (max-width: 600px)': {
+                                                            fontSize: '14px',
+                                                        }
                                                     }}
                                                     variant='body' 
                                                     component="div">

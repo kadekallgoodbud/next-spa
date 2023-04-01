@@ -19,11 +19,11 @@ export default function Contact() {
 
     return(
         <>
-            <div className="container mx-auto w-3/5 min-h-[500px] flex flex-col justify-center align-middle">
+            <div className="container mx-auto w-3/5 xs:w-4/5 min-h-[500px] xs:min-h-[320px] flex flex-col justify-center align-middle">
                 <div className=" flex flex-col items-center ">
                     
                     <h3
-                     className="text-5xl font-bold bg-gradient-to-r from-[color:var(--clr-gradient-text)] to-[color:var(--clr-gradient-text-secondary)] bg-clip-text text-transparent leading-normal">
+                     className="text-5xl xs:text-3xl xs:text-center font-bold bg-gradient-to-r from-[color:var(--clr-gradient-text)] to-[color:var(--clr-gradient-text-secondary)] bg-clip-text text-transparent leading-normal">
                         {ContactProps.title}
                     </h3>
 
@@ -48,6 +48,9 @@ export default function Contact() {
                     <Modal
                     sx={{
                         backdropFilter: setOpen ? 'blur(3px)': 'blur(0px)',
+                        '@media (max-width: 600px)': {
+                            padding: '0px 20px'
+                        }
                     }} 
                     keepMounted
                     open={open}
@@ -60,8 +63,14 @@ export default function Contact() {
                             borderRadius: 5,
                             boxShadow: "0px 0px 10px 1px rgba(0, 0, 0, 0.28)",
                             width: 600,
-                            height: 550,
+                            height: 'auto',
+                            padding: "25px 40px 25px 40px",
                             position: "relative",
+                            '@media (max-width: 600px)': {
+                                width: '100%',
+                                height: 'auto',
+                                padding: "20px 20px 20px 20px",
+                            }
                         }}
                         padding={5}
                         margin={5}
