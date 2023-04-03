@@ -1,5 +1,6 @@
 import { Layout } from '../layout/layout';
 import Link from 'next/link'
+import Head from 'next/head';
 import Image from "next/image"
 import imagesource from "../assets/images/404-data/agussad.webp"
 import { fourcode } from "../data/data"
@@ -20,6 +21,14 @@ export default function FourOhFour() {
     return(
         <>
           <Layout>
+            <Head>
+              <link rel="icon" href="/logoAW.webp" sizes="32x32" />
+              <meta charSet="UTF-8"></meta>
+              <meta name="description" content="Next SPA"></meta>
+              <meta name="author" content="Agus Wibawa"></meta>
+              <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+              <title> Page Not Found - Aguswibawa </title>
+            </Head>
             <Header show_errorHeader="true"/>
             <div className="container w-3/5 xs:w-4/5 min-h-screen xs:min-h-[400px] xs:pt-28 xs:pb-10 flex items-center justify-start mx-auto">
                 <div>

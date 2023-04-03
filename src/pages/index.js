@@ -22,6 +22,7 @@ export default function Home() {
           <meta name="description" content="Next SPA"></meta>
           <meta name="author" content="Agus Wibawa"></meta>
           <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+          <title> Portfolio Aguswibawa </title>
         </Head>
         <Header show_defaultHeader={true} />
         <Hero/>
