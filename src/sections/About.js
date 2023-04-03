@@ -31,7 +31,7 @@ export const CarouselContainer = styled.ul`
 export const CarouselMobileScrollNode = styled.li`
   @media (max-width: 600px) {
     display: flex;
-    min-width: ${({ final }) => final ? `120%;` : `min-content`}
+    min-width: ${({ final }) => final ? `120%;` : `100%`}
   }
 `
 
@@ -70,7 +70,7 @@ export const CarouselItemTitle = styled.span`
     }
   
     @media (max-width: 600px) {
-      font-size: 16px;
+      font-size: 18px;
       line-height: 24px;
     }
 `
@@ -109,7 +109,7 @@ export const CarouselItemText = styled.p`
     
     @media (max-width: 600px) {  
         padding-right: 0;
-        font-size: 10px;
+        font-size: 13px;
         line-height: 16px;
     }
 `
@@ -222,7 +222,7 @@ export default function About({}) {
                             <CarouselItemTitle>
                               {`${item.year}`}
                               <CarouselItemImg
-                                width="200"
+                                width="150"
                                 height="5"
                                 viewBox="0 0 200 5"
                                 xmlns="http://www.w3.org/2000/svg">
