@@ -4,8 +4,8 @@ const transporter = nodemailer.createTransport({
   host: "smtp-relay.sendinblue.com",
   port: 587,
   auth: {
-    user: "dekgusnfs@gmail.com",
-    pass: "ODNsaKYRFC6MJ3bh"
+    user: process.env.SENDINBLUE_EMAIL,
+    pass: process.env.SENDINBLUE_PASSWORD
   }
 });
 

@@ -1,5 +1,6 @@
 import * as React from "react"
 import { bool, func } from 'prop-types'
+import { useRouter } from 'next/router';
 import { Link } from 'react-scroll'
 import styled from 'styled-components'
 import useMediaQuery from '@mui/material/useMediaQuery'
@@ -90,8 +91,15 @@ export const Drawer = styled.nav`
 
 
 
-export const DrawerLayout = ({ open,setOpen, show_DefaultDrawerLayout, show_ErrorDrawerLayout }) => {
+export const DrawerLayout = ({ open, setOpen, show_DefaultDrawerLayout, show_ErrorDrawerLayout, children }) => {
+  const router = useRouter();
+
+  function handleClick() {
+    router.push('/');
+  }
+
   const isMobile = useMediaQuery('(max-width:600px)');
+
     return (
       <>
         {
@@ -188,12 +196,7 @@ export const DrawerLayout = ({ open,setOpen, show_DefaultDrawerLayout, show_Erro
         show_ErrorDrawerLayout && (
           <>
           <Drawer open={open}>
-            <Link 
-              href="/"
-              className="cursor-pointer text-3xl text-[color:var(--clr-navigation-text)] transition-transform duration-200 ease-in-out hover:scale-110 font-bold tracking-wider flex align-center justify-center my-4"
-            >
-                Home
-            </Link>
+            {children}
           </Drawer>
           </>
         )

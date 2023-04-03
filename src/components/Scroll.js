@@ -12,7 +12,7 @@ export default function ScrollTop() {
                     root: {
                         color: '#FFFFFF',
                         borderRadius: '24px',
-                        background: 'var(--clr-border)',
+                        background: 'var(--clr-button)',
                         padding: '5px',
                         fontSize: 40,
                         transition: 'transform ease-in-out',

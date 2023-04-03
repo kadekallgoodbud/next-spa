@@ -4,6 +4,7 @@ import Image from "next/image"
 import imagesource from "../assets/images/404-data/agussad.webp"
 import { fourcode } from "../data/data"
 import { Stack } from '@mui/system';
+import { ButtonMui } from '../components/Material UI/Button'
 import { Typography } from '@mui/material';
 import { Header } from '../sections/Header';
 import Footer from '../sections/Footer';
@@ -13,6 +14,7 @@ export default function FourOhFour() {
   const fourohfourprops = {
       headline : (fourcode.title),
       desc: (fourcode.desc),
+      placeholder: (fourcode.buttonPlaceholder)
   }
 
     return(
@@ -40,7 +42,23 @@ export default function FourOhFour() {
                       <h1 className="bg-gradient-to-r from-[color:var(--clr-gradient-text)] to-[color:var(--clr-gradient-text-secondary)] bg-clip-text text-transparent leading-normal text-[50px] xs:text-2xl xs:leading-tight font-bold" >{fourohfourprops.headline}</h1>
                       <h2 className="mt-[-8px] pb-2 xs:mt-0 xs:pb-0 text-[color:var(--clr-body)] text-lg leading-normal xs:text-2xl xs:leading-tight font-medium">{fourohfourprops.desc}</h2>
                       <Link href="/">
-                         <span>Go back home</span>
+                        <ButtonMui 
+                          sx={{
+                              backgroundColor: "var(--clr-button)",
+                              borderColor: "var(--clr-button)",
+                              borderRadius: "24px",
+                              "&:hover": {
+                                  backgroundColor: 'var(--clr-link)',
+                                  borderColor: 'var(--clr-link)',
+                              },
+                              '&:not(:hover)': { 
+                                  backgroundColor: "var(--clr-button)",
+                                  borderColor: "var(--clr-button)"
+                              },
+                          }}
+                        >
+                          {fourohfourprops.placeholder}
+                        </ButtonMui>
                       </Link>
                     </Stack>
                 </div>                   

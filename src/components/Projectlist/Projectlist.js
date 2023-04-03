@@ -178,15 +178,17 @@ export default function ProjectList() {
                                 className='flex item-center justify-center inset-x-0 bg-gradient-to-t from-white pt-32 pb-5 dark:from-[#001E3C] absolute bottom-[-45px]'>
                                     <ButtonMui 
                                         sx={{
-                                            backgroundColor: "var(--clr-border)",
-                                            borderColor: "var(--clr-border)",
+                                            backgroundColor: "var(--clr-button)",
+                                            borderColor: "var(--clr-button)",
+                                            borderRadius: "24px",
+                                            padding: "7px 30px",
                                             "&:hover": {
                                                 backgroundColor: 'var(--clr-link)',
                                                 borderColor: 'var(--clr-link)'
                                             },
                                             '&:not(:hover)': { 
-                                                backgroundColor: "var(--clr-border)",
-                                                borderColor: "var(--clr-border)"
+                                                backgroundColor: "var(--clr-button)",
+                                                borderColor: "var(--clr-button)"
                                             },
                                         }}
                                         onClick={handleShowMore}>
@@ -201,15 +203,17 @@ export default function ProjectList() {
                                 className='flex item-center justify-center py-5'>
                                     <ButtonMui
                                         sx={{
-                                            backgroundColor: "var(--clr-border)",
-                                            borderColor: "var(--clr-border)",
+                                            backgroundColor: "var(--clr-button)",
+                                            borderColor: "var(--clr-button)",
+                                            borderRadius: "24px",
+                                            padding: "7px 30px",
                                             "&:hover": {
                                                 backgroundColor: 'var(--clr-link)',
                                                 borderColor: 'var(--clr-link)'
                                             },
                                             '&:not(:hover)': { 
-                                                backgroundColor: "var(--clr-border)",
-                                                borderColor: "var(--clr-border)"
+                                                backgroundColor: "var(--clr-button)",
+                                                borderColor: "var(--clr-button)"
                                             },
                                         }}
                                         onClick={handleShowLess}>

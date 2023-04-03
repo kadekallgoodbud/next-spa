@@ -30,15 +30,17 @@ export default function Contact() {
                     <ButtonMui 
                     sx={{
                       margin: "30px 0px",
-                      backgroundColor: "var(--clr-border)",
-                      borderColor: "var(--clr-border)",
+                      padding: "7px 30px",
+                      backgroundColor: "var(--clr-button)",
+                      borderColor: "var(--clr-button)",
+                      borderRadius: "24px",
                       "&:hover": {
                           backgroundColor: 'var(--clr-link)',
                           borderColor: 'var(--clr-link)'
                       },
                       '&:not(:hover)': { 
-                          backgroundColor: "var(--clr-border)",
-                          borderColor: "var(--clr-border)"
+                          backgroundColor: "var(--clr-button)",
+                          borderColor: "var(--clr-button)"
                       },
                     }} 
                     onClick={handleOpen}>
