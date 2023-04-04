@@ -30,26 +30,30 @@ export default function FourOhFour() {
               <title> Page Not Found - Aguswibawa </title>
             </Head>
             <Header show_errorHeader="true"/>
-            <div className="container w-3/5 xs:w-4/5 min-h-screen xs:min-h-[400px] xs:pt-28 xs:pb-10 flex items-center justify-start mx-auto">
+            <div className="container w-3/5 xs:w-4/5 min-h-screen flex items-center justify-start mx-auto">
                 <div>
                     <Stack 
                       direction="row"
                       gap="20px"
                       alignItems="center"
                     >
-                      <h3 className=' text-[200px] font-bold bg-gradient-to-r from-[color:var(--clr-gradient-text)] to-[color:var(--clr-gradient-text-secondary)] bg-clip-text text-transparent leading-normal'>4</h3>
-                      <Image placeholder="empty" src={imagesource} alt="Hero Image" className=" w-[160px] h-[160px] xs:w-[102px] xs:h-[120px] border-solid border-2 border-[color:var(--clr-secondary)] rounded-full object-cover" />
-                      <h3 className=' text-[200px] font-bold bg-gradient-to-r from-[color:var(--clr-gradient-text)] to-[color:var(--clr-gradient-text-secondary)] bg-clip-text text-transparent leading-normal'>4</h3>
+                      <h3 className=' text-[200px] xs:text-[120px] font-bold bg-gradient-to-r from-[color:var(--clr-gradient-text)] to-[color:var(--clr-gradient-text-secondary)] bg-clip-text text-transparent leading-normal'>4</h3>
+                      <Image placeholder="empty" src={imagesource} alt="Hero Image" className=" w-[160px] h-[160px] xs:w-[100px] xs:h-[100px] border-solid border-2 border-[color:var(--clr-secondary)] rounded-full object-cover" />
+                      <h3 className=' text-[200px] xs:text-[120px] font-bold bg-gradient-to-r from-[color:var(--clr-gradient-text)] to-[color:var(--clr-gradient-text-secondary)] bg-clip-text text-transparent leading-normal'>4</h3>
                     </Stack> 
                     <Stack
                       sx={{
-                        margin: "-20px 0px"
+                        margin: "-20px 0px",
+                        '@media (max-width: 600px)': {
+                          margin: "0px",
+                          gap: "24px"
+                        }
                       }}
                       direction="column"
                       gap="15px"
                     >
-                      <h1 className="bg-gradient-to-r from-[color:var(--clr-gradient-text)] to-[color:var(--clr-gradient-text-secondary)] bg-clip-text text-transparent leading-normal text-[50px] xs:text-2xl xs:leading-tight font-bold" >{fourohfourprops.headline}</h1>
-                      <h2 className="mt-[-8px] pb-2 xs:mt-0 xs:pb-0 text-[color:var(--clr-body)] text-lg leading-normal xs:text-2xl xs:leading-tight font-medium">{fourohfourprops.desc}</h2>
+                      <h1 className="bg-gradient-to-r from-[color:var(--clr-gradient-text)] to-[color:var(--clr-gradient-text-secondary)] bg-clip-text text-transparent leading-normal text-[50px] xs:text-xl xs:leading-tight font-bold" >{fourohfourprops.headline}</h1>
+                      <h2 className="mt-[-8px] pb-2 xs:mt-[-8px] xs:pb-0 text-[color:var(--clr-body)] text-lg leading-normal xs:text-sm xs:leading-tight font-medium">{fourohfourprops.desc}</h2>
                       <Link href="/">
                         <ButtonMui 
                           sx={{
@@ -64,6 +68,9 @@ export default function FourOhFour() {
                                   backgroundColor: "var(--clr-button)",
                                   borderColor: "var(--clr-button)"
                               },
+                              '@media (max-width: 600px)': {
+                                  fontSize: "14px"
+                              }
                           }}
                         >
                           {fourohfourprops.placeholder}
