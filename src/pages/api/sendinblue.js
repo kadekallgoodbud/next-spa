@@ -1,17 +1,19 @@
 const nodemailer = require("nodemailer");
-require("dotenv").config();
+require('dotenv').config()
 
-const transporter = nodemailer.createTransport({
-  host: "smtp-relay.sendinblue.com",
-  service: "sendinblue",
-  port: 587,
-  auth: {
-    user: process.env.SENDINBLUE_EMAIL,
-    pass: process.env.SENDINBLUE_PASSWORD
-  },
-});
 
-const sendinBlue = async (req, res) => {
+const sendinblue = async (req, res) => {
+
+  const transporter = nodemailer.createTransport({
+    host: "smtp-relay.sendinblue.com",
+    service: "sendinblue",
+    port: 587,
+    auth: {
+      user: process.env.SENDINBLUE_EMAIL,
+      pass: process.env.SENDINBLUE_PASSWORD
+    },
+  });
+
   if (req.method === "POST") {
     const { name, email, message } = req.body;
 
@@ -35,4 +37,4 @@ const sendinBlue = async (req, res) => {
   }
 };
 
-export default sendinBlue;
+export default sendinblue;
