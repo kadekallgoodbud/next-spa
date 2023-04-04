@@ -2,8 +2,7 @@ const nodemailer = require("nodemailer");
 
 const transporter = nodemailer.createTransport({
   host: "smtp-relay.sendinblue.com",
-  port: 465,
-  secure: true,
+  port: 587,
   auth: {
     user: process.env.SENDINBLUE_EMAIL,
     pass: process.env.SENDINBLUE_PASSWORD
