@@ -24,7 +24,7 @@ export default function ContactForm(props) {
 
     setIsLoading(true);
     try {
-      const response = await axios.post(`${process.env.MAIN_NEXT_HOST}/sendinblue`, formData);
+      const response = await axios.post('/api/sendinblue', formData);
 
       if(response.data.success) {
         setIsLoading(false); 
