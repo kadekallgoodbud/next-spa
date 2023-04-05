@@ -4,7 +4,6 @@ import SendIcon from '@mui/icons-material/Send';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 
-
 export default function ContactForm(props) {
   const [formData, setFormData] = useState({
     name: '', 
@@ -24,8 +23,8 @@ export default function ContactForm(props) {
 
     setIsLoading(true);
     try {
-      const response = await axios.post('/api/sendinblue', formData);
-
+      const response = await axios.post('/api/sendinblue', formData); // Use the endpoint of your serverless function for SendinBlue API
+      
       if(response.data.success) {
         setIsLoading(false); 
         setFormStatus('success');
@@ -39,8 +38,7 @@ export default function ContactForm(props) {
       setIsLoading(false); 
       console.error(error);
       setFormStatus('error');
-    }
-      
+    }    
   };
 
   const handleReset = () => {
