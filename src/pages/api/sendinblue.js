@@ -2,8 +2,7 @@ const nodemailer = require("nodemailer");
 require('dotenv').config()
 
 
-const sendinblue = async (req, res) => {
-
+export default async (req, res) => {
   const transporter = nodemailer.createTransport({
     host: "smtp-relay.sendinblue.com",
     service: "sendinblue",
@@ -36,5 +35,3 @@ const sendinblue = async (req, res) => {
     res.status(405).json({ success: false, error: "Method not allowed" });
   }
 };
-
-export default sendinblue;
