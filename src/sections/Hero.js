@@ -25,7 +25,7 @@ export default function Hero() {
                             backSpeed={20}
                             loop={true}
                             backDelay={2000}
-                        />
+                        /> 
                     </h3>
                     <p className="text-lg xs:text-sm xs:py-0 xs:pt-1 text-[color:var(--clr-body)] font-normal py-3">
                         {HeroProps.desc}
