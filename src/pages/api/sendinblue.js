@@ -1,6 +1,4 @@
-const nodemailer = require("nodemailer");
 require('dotenv').config()
-
 var SibApiV3Sdk = require('sib-api-v3-sdk');
 var defaultClient = SibApiV3Sdk.ApiClient.instance;
 
@@ -15,15 +13,6 @@ apiKey.apiKey = process.env.NEXT_PUBLIC_SENDINBLUE_API_KEY;
 var apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
 
 export default async (req, res) => {
-  const transporter = nodemailer.createTransport({
-    host: "smtp-relay.sendinblue.com",
-    service: "sendinblue",
-    port: 587,
-    auth: {
-      user: process.env.NEXT_PUBLIC_SENDINBLUE_EMAIL,
-      pass: process.env.NEXT_PUBLIC_SENDINBLUE_PASSWORD
-    },
-  });
 
   if (req.method === "POST") {
     const { name, email, message } = req.body;
@@ -39,15 +28,6 @@ export default async (req, res) => {
       const response = await apiInstance.sendTransacEmail(sendSmtpEmail);
       console.log('SendinBlue API called successfully. Returned data: ' + JSON.stringify(response));
 
-      const info = await transporter.sendMail({
-        from: `${name} <${email}>`,
-        to: "dekgusnfs@gmail.com",
-        subject: "New Contact Form Submission",
-        text: message,
-        html: `<p>${message}</p>`
-      });
-
-      console.log("Message sent: %s", info.messageId);
       res.status(200).json({ success: true });
     } catch (error) {
       console.error(error);
@@ -57,4 +37,3 @@ export default async (req, res) => {
     res.status(405).json({ success: false, error: "Method not allowed" });
   }
 };
-
