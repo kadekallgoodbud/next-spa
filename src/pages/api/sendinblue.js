@@ -1,4 +1,3 @@
-require('dotenv').config()
 var SibApiV3Sdk = require('sib-api-v3-sdk');
 var defaultClient = SibApiV3Sdk.ApiClient.instance;
 
@@ -22,7 +21,7 @@ export default async (req, res) => {
       var sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail(); // SendSmtpEmail | Values to send a transactional email
       sendSmtpEmail.to = [{email: email, name: name}];
       sendSmtpEmail.templateId = 59;
-      sendSmtpEmail.params = { name: name, surname: '', message: message }; // Update with required parameters
+      sendSmtpEmail.params = { name: name, message: message }; // Update with required parameters
       sendSmtpEmail.headers = { 'X-Mailin-custom': 'custom_header_1:custom_value_1|custom_header_2:custom_value_2' };
 
       const response = await apiInstance.sendTransacEmail(sendSmtpEmail);
