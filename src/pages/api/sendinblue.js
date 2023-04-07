@@ -6,7 +6,7 @@ var defaultClient = SibApiV3Sdk.ApiClient.instance;
 
 // Configure API key authorization: api-key
 var apiKey = defaultClient.authentications['api-key'];
-apiKey.apiKey = process.env.SENDINBLUE_API_KEY;
+apiKey.apiKey = process.env.NEXT_PUBLIC_SENDINBLUE_API_KEY;
 
 // Uncomment below two lines to configure authorization using: partner-key
 // var partnerKey = defaultClient.authentications['partner-key'];
@@ -20,8 +20,8 @@ export default async (req, res) => {
     service: "sendinblue",
     port: 587,
     auth: {
-      user: process.env.SENDINBLUE_EMAIL,
-      pass: process.env.SENDINBLUE_PASSWORD
+      user: process.env.NEXT_PUBLIC_SENDINBLUE_EMAIL,
+      pass: process.env.NEXT_PUBLIC_SENDINBLUE_PASSWORD
     },
   });
 
@@ -57,3 +57,4 @@ export default async (req, res) => {
     res.status(405).json({ success: false, error: "Method not allowed" });
   }
 };
+
