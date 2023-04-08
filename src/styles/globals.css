@@ -6,3 +6,10 @@
 .app {
 	background-color: var(--clr-primary);
 }
+body {
+	--transition-duration: 0.3s;
+  }
+
+.ThemeContext {	
+	transition: background-color var(--transition-duration) ease;
+ }
