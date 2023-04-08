@@ -6,7 +6,6 @@ const NextConfig = {
       ssr: true,
     },
   },
-  // remove reactStrictMode from here
 }
 
 const withPWA = require('next-pwa')({

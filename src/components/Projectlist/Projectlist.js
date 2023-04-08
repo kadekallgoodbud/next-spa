@@ -16,13 +16,12 @@ import { CardContentMui } from '../../components/Material UI/CardContent';
 import { TypographyMui } from '../../components/Material UI/Typography';
 import { IconButtonMui } from '../../components/Material UI/IconButton';
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
-import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
 
-
-const fetcher = (url) => fetch(url).then((res) => res.json());
+const fetcher = (url) => fetch(url).then((res) => res.json())
 
 export default function ProjectList() {
-    const { data, error, isLoading } = useSWR('api/staticdata', fetcher);
+    
+    const { data, error, isLoading } = useSWR('/api/getproject', fetcher)
     const [ showCount, setShowCount ] = useState(3);
 
     const ref = createRef();
@@ -105,7 +104,7 @@ export default function ProjectList() {
         <>
             <div className='grid gap-5 xs:gap-5 grid-cols-3 xs:grid-cols-1'>
                     {
-                        data && data.allProjects.slice(0, showCount).map(( item ,i ) => {
+                        data && data.slice(0, showCount).map(( item ,i ) => {
                             return (
                                 <div key={i}>
                                     <Box justifyItems="center">
@@ -173,7 +172,7 @@ export default function ProjectList() {
                 <div
                     className='relative'>
                     {
-                        data && showCount < data.allProjects.length && (
+                        data && showCount < data.length && (
                             <div
                                 className='flex item-center justify-center inset-x-0 bg-gradient-to-t from-white pt-32 pb-5 dark:from-[#001E3C] absolute bottom-[-45px]'>
                                     <ButtonMui 
