@@ -17,7 +17,7 @@ export default function Home() {
   <>
     <Layout>
       <Head>
-      <meta charset="UTF-8" />
+      <meta charSet="UTF-8" />
           <meta name="description" content="This is WebApp Portfolio of Agus Wibawa" />
           <meta name="keywords" content="Portfolio, WebApp, Agus Wibawa" />
           <meta name="author" content="Agus Wibawa" />
