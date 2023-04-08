@@ -7,8 +7,6 @@ const toolsProps = {
     skills: (data.tools.skills),
 }
 
-console.log(toolsProps.skills);
-
 export default function Tools() {
     return(
 

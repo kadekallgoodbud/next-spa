@@ -11,8 +11,6 @@ import { data } from '../data/data';
 import { Element } from "react-scroll";
 
 export default function Home() {
-  const pval = (data.project.title) 
-  console.log(pval)
   return (
   <>
     <Layout>
