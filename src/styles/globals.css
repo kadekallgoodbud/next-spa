@@ -5,11 +5,5 @@
 
 .app {
 	background-color: var(--clr-primary);
+	transition: background-color 0.5s ease, color 0.5s ease;
 }
-body {
-	--transition-duration: 0.3s;
-  }
-
-.ThemeContext {	
-	transition: background-color var(--transition-duration) ease;
- }

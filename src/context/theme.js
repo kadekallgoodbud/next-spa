@@ -22,7 +22,9 @@ export const ThemeProvider = ({ children }) => {
 
   return (
     <ThemeContext.Provider value={[{  themeName, toggleTheme }]}>
-      {children}
+      <div className={`transition-colors duration-500 bg-${themeName}`}>
+        {children}
+      </div>
     </ThemeContext.Provider>
   )
 }
