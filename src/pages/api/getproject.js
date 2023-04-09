@@ -1,7 +1,7 @@
 import { groq } from 'next-sanity'
 import { getClient } from '../../utils/sanity'
 
-const allProjectsQuery = groq`*[_type == "project"]{
+const allProjectsQuery = groq`*[_type == "project"] | order(_createdAt asc){
   id,
   title,
   desc,
