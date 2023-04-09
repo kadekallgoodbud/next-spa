@@ -7,7 +7,10 @@ import { data } from "../data/data";
 import { Box } from "@mui/system";
 
 
-export default function Contact() {
+export default function Contact() { 
+    const [formResetKey, setFormResetKey] = useState(0);
+
+  
   const ContactProps = {
       title : (data.contact.title),
       placeholder : (data.contact.placeholder)
@@ -15,7 +18,14 @@ export default function Contact() {
   
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const handleClose = () => {
+    setOpen(false);
+    handleResetForm()
+  } 
+
+  const handleResetForm = () => {
+    setFormResetKey(prevKey => prevKey + 1); // Increment key to reset form
+  }
 
     return(
         <>
@@ -77,7 +87,7 @@ export default function Contact() {
                         padding={5}
                         margin={5}
                         >   
-                            <ContactForm onClick={() => setOpen(false)}/>
+                            <ContactForm key={formResetKey} onClick={() => setOpen(false)}/>
                         </Box>
                     </></Modal>
                 </div>

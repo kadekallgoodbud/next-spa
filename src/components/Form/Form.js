@@ -63,6 +63,10 @@ export default function ContactForm(props) {
     };
   }, [formStatus]);
 
+  useEffect(() => {
+    setFormData({ name: '', email: '', message: '' }); // Reset form when the reset key changes
+  }, [props.formResetKey]);
+
   return (
   <>
     <div className='w-full p-0'>
