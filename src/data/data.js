@@ -3,8 +3,8 @@ export const data = {
         intro: " Hey, Welcome to my Site",
         name: "I'm Agus Wibawa",
         occupation: [
-           "Front-End Developer",
            "UI/UX Designer", 
+           "Software Developer"
         ],
         desc: "Passionate Bali-based front-end developer with expertise in building visually stunning interfaces using the latest technologies. Let's collaborate to bring your website vision to life and create something remarkable.",
         resume: "AgusWibawa-WebDesigner-CV.pdf",
