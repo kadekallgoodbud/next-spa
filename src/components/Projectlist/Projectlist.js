@@ -174,7 +174,7 @@ export default function ProjectList() {
                     {
                         data && showCount < data.length && (
                             <div
-                                className='flex item-center justify-center inset-x-0 bg-gradient-to-t from-white pt-32 pb-5 dark:from-[#001E3C] absolute bottom-[-45px]'>
+                                className='flex item-center justify-center inset-x-0 bg-gradient-to-t from-white pt-32 pb-5 dark:from-[#001E3C] transition-[background-image] duration-[11114s] ease absolute bottom-[-45px]'>
                                     <ButtonMui 
                                         sx={{
                                             backgroundColor: "var(--clr-button)",

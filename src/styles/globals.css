@@ -5,5 +5,9 @@
 
 .app {
 	background-color: var(--clr-primary);
-	transition: background-color 0.5s ease, color 0.5s ease;
+	transition: background-color 0.5s ease !important;
+}
+
+h1, h2, h3, p {
+	transition: color 0.5s ease !important;
 }
