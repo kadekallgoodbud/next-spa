@@ -11,3 +11,7 @@
 h1, h2, h3, p {
 	transition: color 0.5s ease !important;
 }
+
+a {
+    text-decoration: none !important;
+}

@@ -1,21 +1,20 @@
-import { Layout } from '../layout/layout';
-import { Header } from '../sections/Header';
+import { Layout } from '@/layout/layout';
+import { Header } from '@/sections/Header';
 import Head from 'next/head';
-import Hero from '../sections/Hero';
-import About from '../sections/About';
-import Tools from '../sections/Tools';
-import Project from '../sections/Project';
-import Contact from '../sections/Contact';
-import Footer from '../sections/Footer'
-import { data } from '../data/data';
+import Hero from '@/sections/Home/Hero';
+import About from '@/sections/Home/About';
+import Tools from '@/sections/Home/Tools';
+import Project from '@/sections/Home/Project';
+import Contact from '@/sections/Home/Contact';
+import Footer from '@/sections/Footer'
 import { Element } from "react-scroll";
 
 export default function Home() {
   return (
-  <>
-    <Layout>
-      <Head>
-      <meta charSet="UTF-8" />
+    <>
+      <Layout>
+        <Head>
+          <meta charSet="UTF-8" />
           <meta name="description" content="This is WebApp Portfolio of Agus Wibawa" />
           <meta name="keywords" content="Portfolio, WebApp, Agus Wibawa" />
           <meta name="author" content="Agus Wibawa" />
@@ -43,26 +42,26 @@ export default function Home() {
           <meta name="googlebot" content="index, follow" />
           <title> Portfolio Aguswibawa </title>
 
-      </Head>
+        </Head>
         <Header show_defaultHeader={true} />
-        <Hero/>
+        <Hero />
         <main className='flex flex-col gap-10 xs:gap-6'>
-        <Element name="section1">
-          <About/>
-        </Element>
-        <Element name="section2">
-          <Project/>
-        </Element>
-        <Element name="section3">
-          <Tools/>
-        </Element>
-        <Element name="section4">
-          <Contact />
-        </Element>
+          <Element name="section1">
+            <About />
+          </Element>
+          <Element name="section2">
+            <Project />
+          </Element>
+          <Element name="section3">
+            <Tools />
+          </Element>
+          <Element name="section4">
+            <Contact />
+          </Element>
         </main>
-        <Footer/>
-    </Layout>
-  </>
+        <Footer />
+      </Layout>
+    </>
   )
-  
+
 }

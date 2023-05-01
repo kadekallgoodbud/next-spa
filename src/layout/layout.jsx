@@ -1,14 +1,13 @@
 import React, { useContext } from "react"
-import ScrollTop from "../components/Scroll"
-import  ButtonToggler from "../components/ThemeToggler"
-import Footer from '../sections/Footer'
-import { ThemeContext } from "../context/theme"
+import ScrollTop from "@/components/Scroll"
+import ButtonToggler from "@/components/ThemeToggler"
+import { ThemeContext } from "@/context/theme"
 
-export const Layout = ({children}) => {
-    const [{themeName}] = useContext(ThemeContext);
-    return (
-    <>  
-    <style jsx global>{`
+export const Layout = ({ children }) => {
+  const [{ themeName }] = useContext(ThemeContext);
+  return (
+    <>
+      <style jsx global>{`
         :root {
           --clr-bg-modal: ${themeName === 'light' ? '#FBFBFB' : '#003060'};
           --clr-headline-modal: ${themeName === 'light' ? '#0059b2' : '#F3F3F3'};
@@ -22,12 +21,11 @@ export const Layout = ({children}) => {
           --clr-exit-bg-modal: ${themeName === 'light' ? '#CAE5FF' : '#094178'};
         }
       `}</style>
-        <div className={`${themeName} app`}>   
-            <ButtonToggler />
-                {children}
-            <ScrollTop />
-        </div>
+      <div className={`${themeName} app`}>
+        <ButtonToggler />
+        {children}
+        <ScrollTop />
+      </div>
     </>
-    )
-  }
-  
+  )
+}

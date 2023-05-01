@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 const NextConfig = {
   reactStrictMode: false,
+  api: {
+    bodyParser: false,
+  },
   compiler: {
     styledComponents: {
       ssr: true,

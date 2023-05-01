@@ -30,8 +30,8 @@ export default class MyDocument extends Document {
 
   }
 
-  render(){
-    return(
+  render() {
+    return (
       <Html lang="en">
         <Head>
           <meta name="msapplication-TileColor" content="#da532c" />
@@ -46,11 +46,11 @@ export default class MyDocument extends Document {
           <meta name="msapplication-TileImage" content="/mstile-144x144.png" />
           <meta name="msapplication-config" content="/browserconfig.xml" />
         </Head>
-      <body>
-        <Main />
-        <NextScript />
-      </body>
-    </Html>
+        <body>
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
     )
   }
 
